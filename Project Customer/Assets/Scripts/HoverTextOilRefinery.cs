@@ -28,6 +28,7 @@ public class HoverTextOilRefinery : MonoBehaviour
         oilRefineryText.SetActive(true);
         if (Input.GetButton("Fire1"))
         {
+            oilInfo.GetComponent<CloseInfo>().LinkObjectAndPrice(gameObject, 8000);
             oilInfo.SetActive(true);
         }
     }

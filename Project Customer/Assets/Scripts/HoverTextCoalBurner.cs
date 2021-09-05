@@ -28,6 +28,7 @@ public class HoverTextCoalBurner : MonoBehaviour
         coalBurnerText.SetActive(true);
         if (Input.GetButton("Fire1"))
         {
+            coalInfo.GetComponent<CloseInfo>().LinkObjectAndPrice(gameObject, 4000);
             coalInfo.SetActive(true);
         }
     }
