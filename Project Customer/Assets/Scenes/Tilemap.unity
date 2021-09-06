@@ -374,6 +374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previewBuilding: {fileID: 539144453261946525, guid: ce89d6194a5034343ab48447c2fcc967, type: 3}
   building: {fileID: 284545132048215360, guid: 1906ffc3a52134d47a631e60989aa886, type: 3}
+  previewRed: {fileID: 2100000, guid: 7cffa44963be32645afd9384777186a9, type: 2}
+  previewGreen: {fileID: 2100000, guid: 46060540e16ea70438023444e0803404, type: 2}
   cam: {fileID: 238522230}
 --- !u!4 &1003614060
 Transform:
@@ -402,7 +404,7 @@ GameObject:
   - component: {fileID: 1548387666}
   - component: {fileID: 1548387665}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
