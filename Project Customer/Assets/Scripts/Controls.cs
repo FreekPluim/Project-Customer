@@ -6,30 +6,41 @@ public class Controls : MonoBehaviour
 {
     [SerializeField] GameObject previewBuilding;
     [SerializeField] GameObject building;
+    [SerializeField] Material previewRed;
+    [SerializeField] Material previewGreen;
     [SerializeField] Camera cam;
 
     GameObject node;
     GameObject[] nodes;
     GameObject preview;
     GameObject closestNode;
+    Renderer previewRenderer;
+
     NodeScript nodeScript;
+
+    Vector3 mousePos;
+    Vector3 buildingPos;
     List<Vector3> nodesPos = new List<Vector3>();
 
     float dist;
     bool isBuilding = false;
-    bool buildingPlaced = true;
+    bool previewPlaced = true;
 
     private void Start()
     {
-        if(nodes == null)
+        if (nodes == null)
         {
             nodes = GameObject.FindGameObjectsWithTag("Node");
         }
 
-        foreach(GameObject node in nodes)
+        foreach (GameObject node in nodes)
         {
             nodesPos.Add(node.transform.position);
         }
+
+        mousePos = Vector3.zero;
+
+        
     }
 
     void Update()
@@ -50,64 +61,82 @@ public class Controls : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
+            mousePos = hit.point;
             //Debug.Log(hit.point);
-            if(nodesPos.Count != 0)
-            {
-                for (int i = 0; i < nodesPos.Count; i++)
-                {
-                    float x = Mathf.Pow(nodesPos[i].x - hit.point.x, 2);
-                    float y = 0; //Mathf.Pow(hit.point.y - nodesPos[i].y, 2);
-                    float z = Mathf.Pow(nodesPos[i].z - hit.point.z, 2);
-                    dist = Mathf.Sqrt((x + 6) + y + (z + 4));
+        }
 
-                    if (dist < 4)
+        if (nodesPos.Count != 0)
+        {
+            foreach (GameObject node in nodes)
+            {
+                float x = Mathf.Pow(node.transform.localPosition.x - mousePos.x, 2);
+                float y = 0; //Mathf.Pow(mousePos.y - nodesPos[i].y, 2);
+                float z = Mathf.Pow(node.transform.localPosition.z - mousePos.z, 2);
+                dist = Mathf.Sqrt((x + 6) + y + (z + 4));
+
+                if (dist < 4)
+                {
+                    closestNode = node;
+                    if (closestNode != null)
                     {
-                        closestNode.transform.position = nodesPos[i];
                         nodeScript = closestNode.GetComponent<NodeScript>();
                     }
                 }
-                //Debug.Log("Node: " + closestNode);
             }
-            else
-            {
-                Debug.Log("List empty!");
-            }
+            //Debug.Log("Node: " + closestNode);
+        }
+        else
+        {
+            Debug.Log("List empty!");
         }
     }
     
     void BuildMode()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
+    {       
+        if (Input.GetKeyDown(KeyCode.B) && !isBuilding)
         {
-            buildingPlaced = false;
+            previewPlaced = false;
             isBuilding = true;
         }
 
-        if (!buildingPlaced)
+        if (!previewPlaced)
         {
             preview = Instantiate(previewBuilding, Vector3.zero, Quaternion.identity);
-            buildingPlaced = true;
+            previewRenderer = preview.GetComponent<Renderer>();
+            previewPlaced = true;
         }
 
         if (isBuilding)
         {
-            preview.transform.localPosition = closestNode.transform.position;
+            if(preview != null)
+            {
+                preview.transform.localPosition = new Vector3(closestNode.transform.localPosition.x, closestNode.transform.localPosition.y + preview.transform.localScale.y * 0.5f, closestNode.transform.localPosition.z);
+            }
+
+            if (nodeScript.available)
+            {
+                previewRenderer.material = previewGreen;
+            }
+            if (!nodeScript.available)
+            {
+                previewRenderer.material = previewRed;
+            }
         }
 
         if(isBuilding && Input.GetMouseButtonDown(0))
         {
             if (nodeScript.available)
             {
-                Instantiate(building, closestNode.transform.position, Quaternion.identity);
-                nodeScript.available = false;
+                Instantiate(building, new Vector3(closestNode.transform.localPosition.x, closestNode.transform.localPosition.y + building.transform.localScale.y * 0.5f, closestNode.transform.localPosition.z), Quaternion.identity);
                 Destroy(preview);
+                nodeScript.available = false;
+
+                isBuilding = false;
             }
             else
             {
                 Debug.Log("No space!");
             }
-
-            isBuilding = false;
         }
     }
 }
