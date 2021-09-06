@@ -23,6 +23,10 @@ public class PlayerEnergy : MonoBehaviour
     public float amountOfEnergyNuclear;
 
     public Slider energyBarSlider;
+    private void Start()
+    {
+        
+    }
 
     private void Update()
     {
@@ -46,6 +50,7 @@ public class PlayerEnergy : MonoBehaviour
         float oilTotal = amountOfEnergyOil * oil.Length;
         float gasTotal = amountOfEnergyGas * gas.Length;
         float coalTotal = amountOfEnergyCoal * coal.Length;
+        
         float solarTotal = amountOfEnergySolar * solar.Length;
         float windTotal = amountOfEnergyWind * wind.Length;
         float nuclearTotal = amountOfEnergyNuclear * nuclear.Length;

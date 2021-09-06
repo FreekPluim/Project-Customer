@@ -9,6 +9,9 @@ public class PlayerMoney : MonoBehaviour
 
     public Text uiMoney;
 
+    public float oilPrice, gasPrice, coalPrice;
+    public float solarPrice, windPrice, nuclearPrice;
+
     private void Start()
     {
         money = 10000;

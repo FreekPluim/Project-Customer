@@ -28,9 +28,8 @@ public class CloseInfo : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void LinkObjectAndPrice(GameObject LinkedObject, float Price)
+    public void LinkObjectAndPrice(GameObject LinkedObject, float price)
     {
-        price = Price;
         linkedObject = LinkedObject;
     }
 
