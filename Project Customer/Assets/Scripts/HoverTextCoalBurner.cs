@@ -3,12 +3,15 @@ using UnityEngine;
 public class HoverTextCoalBurner : MonoBehaviour
 {
     GameObject coalBurnerText;
+    GameObject moneyManager;
     GameObject coalInfo;
+    float price;
 
     private void Awake()
     {
         coalBurnerText = GameObject.FindGameObjectWithTag("CoalBurnerText");
         coalInfo = GameObject.FindGameObjectWithTag("CoalInfo");
+        moneyManager = GameObject.FindGameObjectWithTag("PlayerData");
     }
 
     // Start is called before the first frame update
@@ -16,6 +19,7 @@ public class HoverTextCoalBurner : MonoBehaviour
     {
         coalBurnerText.SetActive(false);
         coalInfo.SetActive(false);
+        price = moneyManager.GetComponent<PlayerMoney>().coalPrice;
     }
 
     private void Update()
@@ -28,7 +32,7 @@ public class HoverTextCoalBurner : MonoBehaviour
         coalBurnerText.SetActive(true);
         if (Input.GetButton("Fire1"))
         {
-            coalInfo.GetComponent<CloseInfo>().LinkObjectAndPrice(gameObject, 4000);
+            coalInfo.GetComponent<CloseInfo>().LinkObjectAndPrice(gameObject, price);
             coalInfo.SetActive(true);
         }
     }

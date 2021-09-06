@@ -5,18 +5,26 @@ public class HoverTextGasProcessingPlant : MonoBehaviour
     GameObject gasProcessingText;
     GameObject gasInfo;
 
+    private GameObject moneyManager;
+    private float price;
+
     private void Awake()
     {
         gasProcessingText = GameObject.FindGameObjectWithTag("GasProcessingPlantText");
         gasInfo = GameObject.FindGameObjectWithTag("GasInfo");
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        moneyManager = GameObject.FindGameObjectWithTag("PlayerData");
+        price = moneyManager.GetComponent<PlayerMoney>().gasPrice;
+
         gasProcessingText.SetActive(false);
         gasInfo.SetActive(false);
 
+        
     }
 
     private void Update()
@@ -29,7 +37,7 @@ public class HoverTextGasProcessingPlant : MonoBehaviour
         gasProcessingText.SetActive(true);
         if (Input.GetButton("Fire1"))
         {
-            gasInfo.GetComponent<CloseInfo>().LinkObjectAndPrice(gameObject, 9000);
+            gasInfo.GetComponent<CloseInfo>().LinkObjectAndPrice(gameObject, price);
             gasInfo.SetActive(true);
         }
     }

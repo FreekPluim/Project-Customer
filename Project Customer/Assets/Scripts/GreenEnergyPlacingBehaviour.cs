@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SolarPanelPlacingBehaviour : MonoBehaviour
+public class GreenEnergyPlacingBehaviour : MonoBehaviour
 {
     public GameObject Prefab;
     private GameObject moneyManager;
@@ -12,7 +12,9 @@ public class SolarPanelPlacingBehaviour : MonoBehaviour
     private void Start()
     {
         moneyManager = GameObject.FindGameObjectWithTag("PlayerData");
-        price = moneyManager.GetComponent<PlayerMoney>().solarPrice;
+        if (gameObject.name == "WindMillHover") price = moneyManager.GetComponent<PlayerMoney>().windPrice;
+        if (gameObject.name == "SolarPanelHover") price = moneyManager.GetComponent<PlayerMoney>().windPrice;
+        if (gameObject.name == "NuclearHover") price = moneyManager.GetComponent<PlayerMoney>().windPrice;
     }
 
     // Update is called once per frame

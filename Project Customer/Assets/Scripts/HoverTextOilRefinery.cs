@@ -5,6 +5,9 @@ public class HoverTextOilRefinery : MonoBehaviour
     GameObject oilRefineryText;
     GameObject oilInfo;
 
+    private GameObject moneyManager;
+    private float price;
+
     private void Awake()
     {
         oilRefineryText = GameObject.FindGameObjectWithTag("OilRefineryText");
@@ -14,6 +17,9 @@ public class HoverTextOilRefinery : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        moneyManager = GameObject.FindGameObjectWithTag("PlayerData");
+        price = moneyManager.GetComponent<PlayerMoney>().oilPrice;
+
         oilRefineryText.SetActive(false);
         oilInfo.SetActive(false);
     }
