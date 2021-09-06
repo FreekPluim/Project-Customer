@@ -36,7 +36,7 @@ public class GreenEnergyPlacingBehaviour : MonoBehaviour
                 if (plane.Raycast(ray, out entryPoint))
                 {
                     moneyManager.GetComponent<PlayerMoney>().RemoveMoney(price);
-                    Instantiate(Prefab, new Vector3(ray.GetPoint(entryPoint).x, ray.GetPoint(entryPoint).y + Prefab.transform.localScale.y / 2, ray.GetPoint(entryPoint).z), Prefab.transform.rotation);
+                    Instantiate(Prefab, new Vector3(ray.GetPoint(entryPoint).x, ray.GetPoint(entryPoint).y - 50, ray.GetPoint(entryPoint).z), Prefab.transform.rotation);
                     gameObject.SetActive(false);
                 }
 
