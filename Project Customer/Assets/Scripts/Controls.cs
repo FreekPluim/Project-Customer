@@ -39,8 +39,6 @@ public class Controls : MonoBehaviour
         }
 
         mousePos = Vector3.zero;
-
-        
     }
 
     void Update()
@@ -87,7 +85,7 @@ public class Controls : MonoBehaviour
         }
         else
         {
-            Debug.Log("List empty!");
+            Debug.Log("Controlscript node list is empty!");
         }
     }
     

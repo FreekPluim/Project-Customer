@@ -43,4 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9c0b6ed632c9e4cb3b09f36d13694b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Ocean: {fileID: 8220285154628244938, guid: 79223ac5453d5cb47821cdbb9fa74ed4, type: 3}
+  Plains: {fileID: 1451963155677199823, guid: 5232d339f402cd047b32a47cb0fbe073, type: 3}
+  Desert: {fileID: 7437313235313089633, guid: ef801baddea849148bf50985a5058ec9, type: 3}
   available: 1
+  type: 0
+  id: 0
+  nodeID: 0

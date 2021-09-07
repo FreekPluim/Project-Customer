@@ -8,22 +8,22 @@ public class GridGenerator : MonoBehaviour
     [SerializeField] GameObject node;
     GameObject nodes;
     NodeScript script;
+
     int xSize = 40;
     int zSize = 40;
     int id = 0;
 
-
-    void Start()
+    private void Awake()
     {
         nodes = new GameObject("Nodes");
-        
+
 
         for (int z = 2; z < zSize; z += 4)
         {
             for (int x = 2; x < xSize; x += 4)
-            {      
+            {
                 id++;
-                Vector3 position = new Vector3(x - xSize/2, 0, z -zSize/2);
+                Vector3 position = new Vector3(x - xSize / 2, 0, z - zSize / 2);
 
                 GameObject Node = Instantiate(node, position, Quaternion.identity);
                 script = Node.GetComponent<NodeScript>();
@@ -32,5 +32,10 @@ public class GridGenerator : MonoBehaviour
                 script.id = id;
             }
         }
+    }
+
+    void Start()
+    {
+
     }
 }
