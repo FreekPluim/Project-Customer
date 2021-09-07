@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1198998803657037494}
   - component: {fileID: 3983227466495320700}
   - component: {fileID: 7815114152853138332}
+  - component: {fileID: 1738216103}
   m_Layer: 0
   m_Name: Coal Factory
   m_TagString: CoalBurner
@@ -94,3 +95,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e1a946941dcce40a0e8092241fc87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1738216103
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3190721407087002537}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.020000001, y: 0.019999998, z: 0.017530547}
+  m_Center: {x: 0, y: 0, z: 0.008765274}
