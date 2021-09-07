@@ -5,7 +5,7 @@ using UnityEngine;
 public class Controls : MonoBehaviour
 {
     [SerializeField] GameObject previewBuilding;
-    [SerializeField] GameObject building;
+    public GameObject building;
     [SerializeField] Material previewRed;
     [SerializeField] Material previewGreen;
     [SerializeField] Camera cam;
@@ -23,8 +23,8 @@ public class Controls : MonoBehaviour
     List<Vector3> nodesPos = new List<Vector3>();
 
     float dist;
-    bool isBuilding = false;
-    bool previewPlaced = true;
+    public bool isBuilding = false;
+    public bool previewPlaced = true;
 
     private void Start()
     {
@@ -127,7 +127,7 @@ public class Controls : MonoBehaviour
         {
             if (nodeScript.available)
             {
-                Instantiate(building, new Vector3(closestNode.transform.localPosition.x, closestNode.transform.localPosition.y + building.transform.localScale.y * 0.5f, closestNode.transform.localPosition.z), Quaternion.identity);
+                Instantiate(building, new Vector3(closestNode.transform.localPosition.x, closestNode.transform.localPosition.y, closestNode.transform.localPosition.z), building.transform.rotation);
                 Destroy(preview);
                 nodeScript.available = false;
 
