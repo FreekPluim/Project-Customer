@@ -4,21 +4,43 @@ using UnityEngine;
 
 public class GreenEnergyPlacingBehaviour : MonoBehaviour
 {
-    public GameObject Prefab;
     private GameObject moneyManager;
+    private GameObject builder;
+
+    [SerializeField] GameObject Windmill;
+    [SerializeField] GameObject solarPanel;
+    [SerializeField] GameObject nuclearEnergy;
 
     private float price;
 
     private void Start()
     {
         moneyManager = GameObject.FindGameObjectWithTag("PlayerData");
-        if (gameObject.name == "WindMillHover") price = moneyManager.GetComponent<PlayerMoney>().windPrice;
-        if (gameObject.name == "SolarPanelHover") price = moneyManager.GetComponent<PlayerMoney>().windPrice;
-        if (gameObject.name == "NuclearHover") price = moneyManager.GetComponent<PlayerMoney>().windPrice;
+        builder = GameObject.FindGameObjectWithTag("Builder");
+        if (gameObject.name == "WindMillHover") 
+        { 
+            price = moneyManager.GetComponent<PlayerMoney>().windPrice;
+            builder.GetComponent<Controls>().building = Windmill;
+            builder.GetComponent<Controls>().previewPlaced = false;
+        }
+        if (gameObject.name == "SolarPanelHover")
+        {
+            price = moneyManager.GetComponent<PlayerMoney>().solarPrice;
+            builder.GetComponent<Controls>().building = solarPanel;
+            builder.GetComponent<Controls>().previewPlaced = false;
+        }
+        if (gameObject.name == "NuclearHover")
+        {
+            price = moneyManager.GetComponent<PlayerMoney>().nuclearPrice;
+            builder.GetComponent<Controls>().building = nuclearEnergy;
+            builder.GetComponent<Controls>().previewPlaced = false;
+        }
     }
 
+
+
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         transform.position = Input.mousePosition;
 
@@ -42,5 +64,5 @@ public class GreenEnergyPlacingBehaviour : MonoBehaviour
 
             }
         }
-    }
+    }*/
 }

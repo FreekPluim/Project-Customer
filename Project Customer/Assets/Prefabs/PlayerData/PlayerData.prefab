@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4535741216415863072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4535741216415863076}
+  - component: {fileID: 4535741216415863077}
+  - component: {fileID: 4535741216415863078}
+  - component: {fileID: 4535741216415863079}
+  - component: {fileID: 4535741216415863099}
+  m_Layer: 0
+  m_Name: PlayerData
+  m_TagString: PlayerData
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4535741216415863076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4535741216415863072}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.87804765, y: 7.508724, z: -8.29916}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4535741216415863077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4535741216415863072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4219647fcdda0f045843a0a9ec0374a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 0
+  uiMoney: {fileID: 0}
+  oilPrice: 0
+  gasPrice: 0
+  coalPrice: 0
+  solarPrice: 0
+  windPrice: 0
+  nuclearPrice: 0
+--- !u!114 &4535741216415863078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4535741216415863072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 345c3698e3cfb3c4091b8b1edb4564e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentPopularity: 0
+  maxPopularity: 1000
+  greenBar: {fileID: 0}
+--- !u!114 &4535741216415863079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4535741216415863072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 060f16615a5c3054e83e17976452739d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oil: []
+  coal: []
+  gas: []
+  amountOfPolutionOil: 2.13
+  amountOfPolutionCoal: 2.21
+  amountOfPolutionGas: 0.92
+  co2BarSlider: {fileID: 0}
+--- !u!114 &4535741216415863099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4535741216415863072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa3308605fd0194a904cfe996952949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oil: []
+  coal: []
+  gas: []
+  solar: []
+  wind: []
+  nuclear: []
+  amountOfEnergyOil: 0
+  amountOfEnergyCoal: 0
+  amountOfEnergyGas: 0
+  amountOfEnergySolar: 0
+  amountOfEnergyWind: 0
+  amountOfEnergyNuclear: 0
+  energyBarSlider: {fileID: 0}
