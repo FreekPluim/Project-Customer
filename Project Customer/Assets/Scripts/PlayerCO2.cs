@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerCO2 : MonoBehaviour
 {
-    [SerializeField] GameObject[] oil;
-    [SerializeField] GameObject[] coal;
-    [SerializeField] GameObject[] gas;
+    GameObject[] oil;
+    GameObject[] coal;
+    GameObject[] gas;
+    public Slider co2BarSlider;
 
+    [Space]
+    [Header("Polution Amounts float")]
     public float amountOfPolutionOil;
     public float amountOfPolutionCoal;
     public float amountOfPolutionGas;
-
-    public Slider co2BarSlider;
 
     float totalOilPs;
     float totalCoalPs;
@@ -31,6 +33,11 @@ public class PlayerCO2 : MonoBehaviour
     {
         CheckFactoryCount();
         CO2IncreasePerSecondCalculation();
+
+        if (co2BarSlider.value >= co2BarSlider.maxValue)
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 
     private void CheckFactoryCount()
@@ -55,6 +62,8 @@ public class PlayerCO2 : MonoBehaviour
         yield return new WaitForSeconds(1);
         StartCoroutine(PolutionPs());
     }
+
+    
 
 
 }

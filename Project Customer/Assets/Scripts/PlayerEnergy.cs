@@ -5,15 +5,16 @@ using UnityEngine.UI;
 
 public class PlayerEnergy : MonoBehaviour
 {
+    GameObject[] oil;
+    GameObject[] coal;
+    GameObject[] gas;
 
-    [SerializeField] GameObject[] oil;
-    [SerializeField] GameObject[] coal;
-    [SerializeField] GameObject[] gas;
+    GameObject[] solar;
+    GameObject[] wind;
+    GameObject[] nuclear;
 
-    [SerializeField] GameObject[] solar;
-    [SerializeField] GameObject[] wind;
-    [SerializeField] GameObject[] nuclear;
-
+    [Space]
+    [Header("Energy Production floats")]
     public float amountOfEnergyOil;
     public float amountOfEnergyCoal;
     public float amountOfEnergyGas;

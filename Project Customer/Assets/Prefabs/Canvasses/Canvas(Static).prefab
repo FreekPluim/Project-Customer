@@ -316,7 +316,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca64d35efd2cde41817150b620c1dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 3805031099031501678, guid: 7ef3c0a33fbb314488290a456847219e, type: 3}
+  Windmill: {fileID: 2761145026079065768, guid: 6e93f09b17843584e816dc90d8c56973, type: 3}
+  solarPanel: {fileID: 3805031099031501678, guid: 7ef3c0a33fbb314488290a456847219e, type: 3}
+  nuclearEnergy: {fileID: 2184102576110847915, guid: 0892ba286431a8f4e8f676ebeb58f8c2, type: 3}
 --- !u!1 &3926713603093533906
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,7 +796,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca64d35efd2cde41817150b620c1dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 2761145026079065768, guid: 6e93f09b17843584e816dc90d8c56973, type: 3}
+  Windmill: {fileID: 2761145026079065768, guid: 6e93f09b17843584e816dc90d8c56973, type: 3}
+  solarPanel: {fileID: 3805031099031501678, guid: 7ef3c0a33fbb314488290a456847219e, type: 3}
+  nuclearEnergy: {fileID: 2184102576110847915, guid: 0892ba286431a8f4e8f676ebeb58f8c2, type: 3}
 --- !u!1 &3926713603918195454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,7 +1257,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca64d35efd2cde41817150b620c1dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 2184102576110847915, guid: 0892ba286431a8f4e8f676ebeb58f8c2, type: 3}
+  Windmill: {fileID: 2761145026079065768, guid: 6e93f09b17843584e816dc90d8c56973, type: 3}
+  solarPanel: {fileID: 3805031099031501678, guid: 7ef3c0a33fbb314488290a456847219e, type: 3}
+  nuclearEnergy: {fileID: 2184102576110847915, guid: 0892ba286431a8f4e8f676ebeb58f8c2, type: 3}
 --- !u!1 &3926713604530492797
 GameObject:
   m_ObjectHideFlags: 0
