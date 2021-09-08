@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Controls : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class Controls : MonoBehaviour
     [SerializeField] Material previewRed;
     [SerializeField] Material previewGreen;
     [SerializeField] Camera cam;
+
+    [SerializeField] GameObject nodeStatUI;
+    [SerializeField] Text title;
+    [SerializeField] Text productionBoost;
 
     GameObject node;
     GameObject[] nodes;
@@ -25,6 +30,9 @@ public class Controls : MonoBehaviour
     float dist;
     public bool isBuilding = false;
     public bool previewPlaced = true;
+
+    bool placingSolar = false;
+    bool placingWind = false;
 
     private void Start()
     {
@@ -50,6 +58,7 @@ public class Controls : MonoBehaviour
 
         FindClosestNode();
         BuildMode();
+        DisplayNodeStats();
     }
 
     void FindClosestNode()
@@ -95,6 +104,14 @@ public class Controls : MonoBehaviour
         {
             previewPlaced = false;
             isBuilding = true;
+            placingSolar = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.C) && !isBuilding)
+        {
+            previewPlaced = false;
+            isBuilding = true;
+            placingWind = true;
         }
 
         if (!previewPlaced)
@@ -127,7 +144,7 @@ public class Controls : MonoBehaviour
             {
                 Instantiate(building, new Vector3(closestNode.transform.localPosition.x, closestNode.transform.localPosition.y, closestNode.transform.localPosition.z), building.transform.rotation);
                 Destroy(preview);
-                nodeScript.available = false;
+                //nodeScript.available = false;
 
                 isBuilding = false;
             }
@@ -135,6 +152,27 @@ public class Controls : MonoBehaviour
             {
                 Debug.Log("No space!");
             }
+        }
+    }
+
+    void DisplayNodeStats()
+    {
+        if (isBuilding)
+        {
+            nodeStatUI.SetActive(true);
+            title.text = nodeScript.title;
+            if (placingSolar)
+            {
+                productionBoost.text = "Solar boost: " + nodeScript.solarBoost;
+            }
+            if (placingWind)
+            {
+                productionBoost.text = "Wind boost: " + nodeScript.windBoost;
+            }
+        }
+        else
+        {
+            nodeStatUI.SetActive(false);
         }
     }
 }
