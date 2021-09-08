@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &120010654 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3926713604498550274, guid: 7972803b247900f4e9a3f1e79257b240, type: 3}
-  m_PrefabInstance: {fileID: 1509941867}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &205445990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -254,11 +249,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d4bfa2e67ef3e14f9312b04cf574507, type: 3}
---- !u!1 &464935050 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3926713603798980509, guid: 7972803b247900f4e9a3f1e79257b240, type: 3}
-  m_PrefabInstance: {fileID: 1509941867}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &569187764
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,89 +378,6 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 900521579}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &643046582 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5326309895438869989, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-  m_PrefabInstance: {fileID: 900521579}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &643046584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 643046582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 643046586}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 643046585}
-        m_TargetAssemblyTypeName: OpenMenu, Assembly-CSharp
-        m_MethodName: OnButtonPress
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &643046585 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5326309895438869530, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-  m_PrefabInstance: {fileID: 900521579}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 643046582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e00de9e6cc11664ea865f5a9bf5d7a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &643046586 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5326309895438869991, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-  m_PrefabInstance: {fileID: 900521579}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 643046582}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -690,22 +597,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5326309894406295355, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -21.500214
-      objectReference: {fileID: 0}
-    - target: {fileID: 5326309894406295356, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5326309894967828424, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -21.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5326309894967828425, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5326309895015844415, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -713,26 +604,6 @@ PrefabInstance:
     - target: {fileID: 5326309895015844415, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5326309895438869529, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-      propertyPath: m_Interactable
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5326309895731036756, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 46
-      objectReference: {fileID: 0}
-    - target: {fileID: 5326309895731036756, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 41.854
-      objectReference: {fileID: 0}
-    - target: {fileID: 5326309895731036757, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5326309895753966960, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -21.544006
       objectReference: {fileID: 0}
     - target: {fileID: 5326309895754963410, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
       propertyPath: m_Pivot.x
@@ -826,54 +697,8 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5326309896130463173, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-      propertyPath: Windmill
-      value: 
-      objectReference: {fileID: 2761145026079065768, guid: 6e93f09b17843584e816dc90d8c56973, type: 3}
-    - target: {fileID: 5326309896130463173, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-      propertyPath: windmill
-      value: 
-      objectReference: {fileID: 464935050}
-    - target: {fileID: 5326309896130463173, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-      propertyPath: solarPanel
-      value: 
-      objectReference: {fileID: 3805031099031501678, guid: 7ef3c0a33fbb314488290a456847219e, type: 3}
-    - target: {fileID: 5326309896130463173, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-      propertyPath: solarPannel
-      value: 
-      objectReference: {fileID: 986664208}
-    - target: {fileID: 5326309896130463173, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-      propertyPath: WindmillHover
-      value: 
-      objectReference: {fileID: 464935050}
-    - target: {fileID: 5326309896130463173, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-      propertyPath: nuclearEnergy
-      value: 
-      objectReference: {fileID: 2184102576110847915, guid: 0892ba286431a8f4e8f676ebeb58f8c2, type: 3}
-    - target: {fileID: 5326309896130463173, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-      propertyPath: solarPanelHover
-      value: 
-      objectReference: {fileID: 986664208}
-    - target: {fileID: 5326309896130463173, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-      propertyPath: nuclearPowerPlant
-      value: 
-      objectReference: {fileID: 120010654}
-    - target: {fileID: 5326309896130463173, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-      propertyPath: nuclearPowerPlantHover
-      value: 
-      objectReference: {fileID: 120010654}
-    - target: {fileID: 5326309896390989608, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 162.5
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5326309895438869529, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
---- !u!1 &986664208 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3926713602911942870, guid: 7972803b247900f4e9a3f1e79257b240, type: 3}
-  m_PrefabInstance: {fileID: 1509941867}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1106394510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -987,9 +812,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4535741216415863077, guid: 2a639a87fe6ff7140976888701bc3f4a, type: 3}
+      propertyPath: energy
+      value: 
+      objectReference: {fileID: 2104487535}
+    - target: {fileID: 4535741216415863077, guid: 2a639a87fe6ff7140976888701bc3f4a, type: 3}
       propertyPath: uiMoney
       value: 
       objectReference: {fileID: 1304257901}
+    - target: {fileID: 4535741216415863077, guid: 2a639a87fe6ff7140976888701bc3f4a, type: 3}
+      propertyPath: popularity
+      value: 
+      objectReference: {fileID: 638632823}
     - target: {fileID: 4535741216415863078, guid: 2a639a87fe6ff7140976888701bc3f4a, type: 3}
       propertyPath: greenBar
       value: 
@@ -1090,30 +923,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3926713602911942868, guid: 7972803b247900f4e9a3f1e79257b240, type: 3}
-      propertyPath: Windmill
-      value: 
-      objectReference: {fileID: 2761145026079065768, guid: 6e93f09b17843584e816dc90d8c56973, type: 3}
-    - target: {fileID: 3926713602911942868, guid: 7972803b247900f4e9a3f1e79257b240, type: 3}
-      propertyPath: solarPanel
-      value: 
-      objectReference: {fileID: 3805031099031501678, guid: 7ef3c0a33fbb314488290a456847219e, type: 3}
-    - target: {fileID: 3926713602911942868, guid: 7972803b247900f4e9a3f1e79257b240, type: 3}
-      propertyPath: nuclearEnergy
-      value: 
-      objectReference: {fileID: 2184102576110847915, guid: 0892ba286431a8f4e8f676ebeb58f8c2, type: 3}
-    - target: {fileID: 3926713603798980507, guid: 7972803b247900f4e9a3f1e79257b240, type: 3}
-      propertyPath: Windmill
-      value: 
-      objectReference: {fileID: 2761145026079065768, guid: 6e93f09b17843584e816dc90d8c56973, type: 3}
-    - target: {fileID: 3926713603798980507, guid: 7972803b247900f4e9a3f1e79257b240, type: 3}
-      propertyPath: solarPanel
-      value: 
-      objectReference: {fileID: 3805031099031501678, guid: 7ef3c0a33fbb314488290a456847219e, type: 3}
-    - target: {fileID: 3926713603798980507, guid: 7972803b247900f4e9a3f1e79257b240, type: 3}
-      propertyPath: nuclearEnergy
-      value: 
-      objectReference: {fileID: 2184102576110847915, guid: 0892ba286431a8f4e8f676ebeb58f8c2, type: 3}
     - target: {fileID: 3926713604123597916, guid: 7972803b247900f4e9a3f1e79257b240, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1202,18 +1011,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas(Static)
       objectReference: {fileID: 0}
-    - target: {fileID: 3926713604498550272, guid: 7972803b247900f4e9a3f1e79257b240, type: 3}
-      propertyPath: Windmill
-      value: 
-      objectReference: {fileID: 2761145026079065768, guid: 6e93f09b17843584e816dc90d8c56973, type: 3}
-    - target: {fileID: 3926713604498550272, guid: 7972803b247900f4e9a3f1e79257b240, type: 3}
-      propertyPath: solarPanel
-      value: 
-      objectReference: {fileID: 3805031099031501678, guid: 7ef3c0a33fbb314488290a456847219e, type: 3}
-    - target: {fileID: 3926713604498550272, guid: 7972803b247900f4e9a3f1e79257b240, type: 3}
-      propertyPath: nuclearEnergy
-      value: 
-      objectReference: {fileID: 2184102576110847915, guid: 0892ba286431a8f4e8f676ebeb58f8c2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7972803b247900f4e9a3f1e79257b240, type: 3}
 --- !u!114 &1681481439 stripped
@@ -1221,7 +1018,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5326309894406295356, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
   m_PrefabInstance: {fileID: 900521579}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2104487535}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
@@ -1231,4 +1028,9 @@ MonoBehaviour:
 Camera:
   m_CorrespondingSourceObject: {fileID: 7163967513045271436, guid: 1feca1e3080a53c45a1e3f5f5d3d5293, type: 3}
   m_PrefabInstance: {fileID: 755816547}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2104487535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5326309894406295354, guid: 147c5fd3712f4f14e900e34cf073ed37, type: 3}
+  m_PrefabInstance: {fileID: 900521579}
   m_PrefabAsset: {fileID: 0}

@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerPopularity : MonoBehaviour
 {
     public float currentPopularity = 500;
-    float calculatedPopularity;
     public float maxPopularity = 1000;
-
-    float modifierPopularity;
-    float currentPopularityForBar;
     public Image greenBar;
+    [SerializeField] PlayerEnergy playerEnergy;
 
+    float calculatedPopularity;
+    float energyModifier;
+
+    private void Start()
+    {
+        playerEnergy = transform.GetComponentInParent<PlayerEnergy>();
+    }
+
+    void CalculateEnergyModifier()
+    {
+        
+    }
 
     void CalculatePopularity()
     {
@@ -49,5 +59,10 @@ public class PlayerPopularity : MonoBehaviour
     {
         CalculatePopularity();
         SetSlider();
+
+        if(currentPopularity <= 0)
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 }
