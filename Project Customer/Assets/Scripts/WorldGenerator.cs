@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class WorldGenerator : MonoBehaviour
 {
+
     NodeScript nodeScript;
-    /*[SerializeField] Controls controlScript;*/
     GameObject[] nodes;
+
 
     int nodeIndex = 1;
 
@@ -36,10 +37,15 @@ public class WorldGenerator : MonoBehaviour
             nodes = GameObject.FindGameObjectsWithTag("Node");
         }
 
+        LoadNodeTypes();
+    }
+
+    void LoadNodeTypes()
+    {
         if (nodes.Length != 0)
         {
             foreach (GameObject node in nodes)
-            { 
+            {
                 nodeScript = node.GetComponent<NodeScript>();
                 if (nodeScript.id == nodeIndex)
                 {
@@ -53,5 +59,10 @@ public class WorldGenerator : MonoBehaviour
         {
             Debug.Log("WorldGenerator node list is empty!");
         }
+    }
+
+    void GenerateBuildings()
+    {
+
     }
 }

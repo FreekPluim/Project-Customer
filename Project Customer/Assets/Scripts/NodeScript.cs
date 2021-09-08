@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class NodeScript : MonoBehaviour
 {
-    [SerializeField] GameObject Ocean;
-    [SerializeField] GameObject Plains;
-    [SerializeField] GameObject Desert;
+    [SerializeField] GameObject ocean;
+    [SerializeField] GameObject plains;
+    [SerializeField] GameObject desert;
 
     public bool available = true;
 
-
-    public enum NodeType{
+/*    public enum NodeType{
         Ocean,
         Plains,
         Desert,
@@ -20,47 +19,54 @@ public class NodeScript : MonoBehaviour
         City
     };
 
-    public NodeType type;
+    public NodeType type;*/
 
     public int id;
-    public int nodeID;
+    public int typeID;
+
+    public string title;
+    public int windBoost;
+    public int solarBoost;
+
+    public GameObject tileTypes;
+    public GameObject tile;
 
     public void SetNodeType(int ID)
     {
+        //tile = Instantiate(plains, transform.localPosition, Quaternion.identity);
         switch (ID)
         {
             case 0:     //Ocean
-                //type = NodeType.Ocean;
-                Instantiate(Ocean, transform.localPosition, Quaternion.identity);
+                Instantiate(ocean, transform.localPosition, Quaternion.identity);
+                title = "Ocean";
+                windBoost = 10;
                 Debug.Log("Ocean tile spawned!");
                 break;
             case 1:     //Plains
-                //type = NodeType.Plains;
-                Instantiate(Plains, transform.localPosition, Quaternion.identity);
+                Instantiate(plains, transform.localPosition, Quaternion.identity);
+                title = "Plains";
                 Debug.Log("Plains tile spawned!");
                 break;
             case 2:     //Desert
-                //type = NodeType.Desert;
-                Instantiate(Desert, transform.localPosition, Quaternion.identity);
+                Instantiate(desert, transform.localPosition, Quaternion.identity);
+                title = "Desert";
+                solarBoost = 20;
                 Debug.Log("Desert tile spawned!");
                 break;
             case 3:     //Hills
-                //type = NodeType.Hills;
                 Debug.Log("Hills not yet implemented");
                 break;
             case 4:     //Forest
-                //type = NodeType.Forest;
                 Debug.Log("Forest not yet implemented");
                 break;
             case 5:     //City
-                //type = NodeType.City;
                 Debug.Log("City not yet implemented");
                 break;
             default:    //Type not found
-                //type = NodeType.Ocean;
                 Debug.Log("404 Node type not found!");
                 break;
         }
         Debug.Log("NodeType set!");
+        typeID = ID;
     }
 }
