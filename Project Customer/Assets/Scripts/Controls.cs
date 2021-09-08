@@ -144,7 +144,7 @@ public class Controls : MonoBehaviour
             {
                 Instantiate(building, new Vector3(closestNode.transform.localPosition.x, closestNode.transform.localPosition.y + building.transform.localScale.y * 0.5f, closestNode.transform.localPosition.z), Quaternion.identity);
                 Destroy(preview);
-                nodeScript.available = false;
+                //nodeScript.available = false;
 
                 isBuilding = false;
             }
