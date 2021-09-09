@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3190721407087002537}
-  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
   m_LocalPosition: {x: 12.73341, y: 0.049969792, z: 3.5517244}
   m_LocalScale: {x: 161.28, y: 161.28, z: 161.28}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 180, z: 0}
 --- !u!33 &1198998803657037494
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e1a946941dcce40a0e8092241fc87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coalBurnerText: {fileID: 5790179929384273244, guid: 021661f87de0c6246b2fa43c3bad7cb7, type: 3}
 --- !u!65 &1738216103
 BoxCollider:
   m_ObjectHideFlags: 0

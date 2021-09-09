@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HoverTextOilRefinery : MonoBehaviour
 {
-    GameObject oilRefineryText;
+    [SerializeField] GameObject oilRefineryText;
     GameObject oilInfo;
 
     private GameObject moneyManager;
@@ -10,7 +10,6 @@ public class HoverTextOilRefinery : MonoBehaviour
 
     private void Awake()
     {
-        oilRefineryText = GameObject.FindGameObjectWithTag("OilRefineryText");
         oilInfo = GameObject.FindGameObjectWithTag("OilInfo");
     }
 

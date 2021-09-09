@@ -39,7 +39,7 @@ public class NodeScript : MonoBehaviour
     public int windBoost;
     public int solarBoost;
 
-    private void Start()
+    private void Awake()
     {
         ray = new Ray(transform.localPosition, Vector3.up);
         tilePos = new Vector3(transform.localPosition.x, (transform.localPosition.y - ocean.transform.localScale.y * 0.5f), transform.localPosition.z);
@@ -110,7 +110,7 @@ public class NodeScript : MonoBehaviour
 
     void SpawnPowerPlant()
     {
-        int type = Random.Range(0, 2);
+        int type = Random.Range(0, 3);
 
         switch (type)
         {
@@ -121,7 +121,7 @@ public class NodeScript : MonoBehaviour
                 Instantiate(gas, transform.localPosition, Quaternion.identity);
                 break;
             case 2:
-                Instantiate(coal, transform.localPosition, Quaternion.identity);
+                Instantiate(coal, transform.localPosition, coal.transform.rotation);
                 break;
         }
     }
