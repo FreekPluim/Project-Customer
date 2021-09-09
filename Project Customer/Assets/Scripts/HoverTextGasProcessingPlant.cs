@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HoverTextGasProcessingPlant : MonoBehaviour
 {
-    GameObject gasProcessingText;
+    [SerializeField] GameObject gasProcessingText;
     GameObject gasInfo;
 
     private GameObject moneyManager;
@@ -10,7 +10,6 @@ public class HoverTextGasProcessingPlant : MonoBehaviour
 
     private void Awake()
     {
-        gasProcessingText = GameObject.FindGameObjectWithTag("GasProcessingPlantText");
         gasInfo = GameObject.FindGameObjectWithTag("GasInfo");
 
     }

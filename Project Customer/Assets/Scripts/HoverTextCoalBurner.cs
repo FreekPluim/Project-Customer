@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class HoverTextCoalBurner : MonoBehaviour
 {
-    GameObject coalBurnerText;
+    [SerializeField] GameObject coalBurnerText;
     GameObject moneyManager;
     GameObject coalInfo;
     float price;
 
     private void Awake()
     {
-        coalBurnerText = GameObject.FindGameObjectWithTag("CoalBurnerText");
         coalInfo = GameObject.FindGameObjectWithTag("CoalInfo");
         moneyManager = GameObject.FindGameObjectWithTag("PlayerData");
     }

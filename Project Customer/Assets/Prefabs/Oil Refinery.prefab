@@ -352,6 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989a2b9134a56df4ab80608310e881ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oilRefineryText: {fileID: 3960041940096372592, guid: c46c91a0d9158544491bb0b00440a101, type: 3}
 --- !u!1 &7905506755314168741
 GameObject:
   m_ObjectHideFlags: 0
