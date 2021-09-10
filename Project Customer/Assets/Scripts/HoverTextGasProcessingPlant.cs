@@ -34,7 +34,7 @@ public class HoverTextGasProcessingPlant : MonoBehaviour
     public void OnMouseOver()
     {
         gasProcessingText.SetActive(true);
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButtonUp("Fire1"))
         {
             gasInfo.GetComponent<CloseInfo>().LinkObjectAndPrice(gameObject, price);
             gasInfo.SetActive(true);

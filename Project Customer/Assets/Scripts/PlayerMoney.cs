@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerMoney : MonoBehaviour
 {
+    PlayerEnergy energyScript;
+
     [Header("UI Variables")]
     public float money;
     public Text uiMoney;
@@ -25,14 +27,15 @@ public class PlayerMoney : MonoBehaviour
 
     [Space]
     [Header("Income variables")]
-    [SerializeField] float baseIncome;
+    float baseIncome;
     [SerializeField] float popularityModifier;
     [SerializeField] float currentIncome;
-    [SerializeField] float incomeTimer = 30;
+    float incomeTimer = 10;
     
 
     private void Start()
     {
+        energyScript = gameObject.GetComponent<PlayerEnergy>();
         StartCoroutine(IncomePerMonth());
     }
 
@@ -55,6 +58,8 @@ public class PlayerMoney : MonoBehaviour
 
     void calculateIncome()
     {
+        baseIncome = energyScript.greenTotal * 100;
+        Debug.Log(baseIncome);
         popularityModifier = popularity.fillAmount * 2;
         currentIncome = baseIncome * popularityModifier;
     }
