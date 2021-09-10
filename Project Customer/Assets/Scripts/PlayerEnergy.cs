@@ -5,6 +5,16 @@ using UnityEngine.UI;
 
 public class PlayerEnergy : MonoBehaviour
 {
+    [SerializeField] Text requiredText;
+    [SerializeField] Text productionText;
+
+    float energyRequired;
+    float newEnergyRequired;
+    float expectedRequired;
+    float energyProducing;
+    float pollutingTotal;
+    public float greenTotal;
+
     GameObject[] oil;
     GameObject[] coal;
     GameObject[] gas;
@@ -26,13 +36,27 @@ public class PlayerEnergy : MonoBehaviour
     public Slider energyBarSlider;
     private void Start()
     {
-        
+        newEnergyRequired = 6;
+        //energyRequired += pollutingTotal;
     }
 
     private void Update()
     {
         CheckFactoryCount();
         EnergyBarUpdate();
+
+        if(expectedRequired == 0)
+        {
+            expectedRequired = pollutingTotal;
+        }
+
+        if(expectedRequired != pollutingTotal)
+        {
+            float difference = expectedRequired - pollutingTotal;
+            newEnergyRequired += difference;
+            Debug.Log(difference);
+            expectedRequired = pollutingTotal;
+        }
     }
 
     private void CheckFactoryCount()
@@ -56,8 +80,16 @@ public class PlayerEnergy : MonoBehaviour
         float windTotal = amountOfEnergyWind * wind.Length;
         float nuclearTotal = amountOfEnergyNuclear * nuclear.Length;
 
-
+        greenTotal = solarTotal + windTotal + nuclearTotal;
+        pollutingTotal = oilTotal + gasTotal + coalTotal;
         float total = oilTotal + gasTotal + coalTotal + solarTotal + windTotal + nuclearTotal;
-        energyBarSlider.value = total;
+        //energyBarSlider.value = total;
+        SetEnergyTexts();
+    }
+
+    void SetEnergyTexts()
+    {
+        requiredText.text = "Required: " + newEnergyRequired;
+        productionText.text = "Producing: " + greenTotal.ToString();
     }
 }

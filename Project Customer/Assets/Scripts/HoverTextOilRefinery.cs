@@ -31,9 +31,9 @@ public class HoverTextOilRefinery : MonoBehaviour
     public void OnMouseOver()
     {
         oilRefineryText.SetActive(true);
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButtonUp("Fire1"))
         {
-            oilInfo.GetComponent<CloseInfo>().LinkObjectAndPrice(gameObject, 8000);
+            oilInfo.GetComponent<CloseInfo>().LinkObjectAndPrice(gameObject, 2000);
             oilInfo.SetActive(true);
         }
     }
