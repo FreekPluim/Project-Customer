@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: acadc2bf03225174f81d80ae355417d7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Windmill: {fileID: 2761145026079065768, guid: 6e93f09b17843584e816dc90d8c56973, type: 3}
+  - solarPanel: {fileID: 3805031099031501678, guid: 7ef3c0a33fbb314488290a456847219e, type: 3}
+  - nuclearEnergy: {fileID: 2184102576110847915, guid: 0892ba286431a8f4e8f676ebeb58f8c2, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
