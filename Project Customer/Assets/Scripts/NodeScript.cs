@@ -52,7 +52,7 @@ public class NodeScript : MonoBehaviour
         
         if (Physics.Raycast(ray, 1f) && available)
         {
-            Debug.Log("ray hit!");
+            //Debug.Log("ray hit!");
             available = false;
         }
         else if(!Physics.Raycast(ray, 1f) && !available)
@@ -104,7 +104,7 @@ public class NodeScript : MonoBehaviour
                 Debug.Log("404 Node type not found!");
                 break;
         }
-        Debug.Log("NodeType set!");
+        //Debug.Log("NodeType set!");
         typeID = ID;
     }
 

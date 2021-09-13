@@ -74,7 +74,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPopularity: 500
   maxPopularity: 1000
-  greenBar: {fileID: 0}
+  decreaseWindmillDistance: 100
+  decreaseNuclearDistance: 400
+  popularityBar: {fileID: 0}
+  playerEnergy: {fileID: 0}
 --- !u!114 &4535741216415863079
 MonoBehaviour:
   m_ObjectHideFlags: 0

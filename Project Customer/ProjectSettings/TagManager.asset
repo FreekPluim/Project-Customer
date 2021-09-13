@@ -3,7 +3,24 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CoalBurnerText
+  - CoalInfo
+  - OilInfo
+  - BuyingMenu
+  - GasInfo
+  - OilRefineryText
+  - OilRefinery
+  - player
+  - NuclearPowerPlant
+  - GasProcessingPlant
+  - Node
+  - GasProcessingPlantText
+  - PlayerData
+  - CoalBurner
+  - Windmill
+  - SolarPannel
+  - City
   layers:
   - Default
   - TransparentFX
