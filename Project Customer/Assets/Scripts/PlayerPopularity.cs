@@ -8,7 +8,11 @@ public class PlayerPopularity : MonoBehaviour
 {
     public float currentPopularity = 500;
     public float maxPopularity = 1000;
-    public Image greenBar;
+
+    public float decreaseWindmillDistance;
+    public float decreaseNuclearDistance;
+
+    public Image popularityBar;
     [SerializeField] PlayerEnergy playerEnergy;
 
     float calculatedPopularity;
@@ -40,18 +44,18 @@ public class PlayerPopularity : MonoBehaviour
     }
     void SetSlider()
     {
-        greenBar.fillAmount = calculatedPopularity;
+        popularityBar.fillAmount = calculatedPopularity;
 
         if (calculatedPopularity <= 0.3f)
         {
-            greenBar.color = Color.red;
+            popularityBar.color = Color.red;
         } else if (calculatedPopularity <= 0.7f)
         {
-            greenBar.color = Color.yellow;
+            popularityBar.color = Color.yellow;
         }
         else
         {
-            greenBar.color = Color.green;
+            popularityBar.color = Color.green;
         }
         
     }

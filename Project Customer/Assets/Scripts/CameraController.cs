@@ -51,7 +51,7 @@ public class CameraController : MonoBehaviour
         // Moving camera
         
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             //Origin = cam.ScreenToWorldPoint(Input.mousePosition);
 
@@ -68,7 +68,7 @@ public class CameraController : MonoBehaviour
 
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
             Plane plane = new Plane(Vector3.up, Vector3.zero);
 
@@ -84,7 +84,7 @@ public class CameraController : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(1))
         {
             newPosition = cam.transform.position;
         }

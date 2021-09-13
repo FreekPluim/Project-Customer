@@ -58,7 +58,7 @@ public class PlayerCO2 : MonoBehaviour
     IEnumerator PolutionPs()
     {
         if (co2BarSlider != null) co2BarSlider.value += totalPolution;
-        Debug.Log("Increased by <b>" + totalPolution + "</b>");
+        //Debug.Log("Increased by <b>" + totalPolution + "</b>");
         yield return new WaitForSeconds(1);
         StartCoroutine(PolutionPs());
     }
