@@ -56,10 +56,8 @@ MonoBehaviour:
   nuclearPrice: 0
   energy: {fileID: 0}
   popularity: {fileID: 0}
-  baseIncome: 500
   popularityModifier: 0
   currentIncome: 0
-  incomeTimer: 30
 --- !u!114 &4535741216415863078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,8 +72,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPopularity: 500
   maxPopularity: 1000
-  decreaseWindmillDistance: 100
-  decreaseNuclearDistance: 400
+  decreaseWindmillDistance: 300
+  decreaseNuclearDistance: 500
   popularityBar: {fileID: 0}
   playerEnergy: {fileID: 0}
 --- !u!114 &4535741216415863079
@@ -106,10 +104,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa3308605fd0194a904cfe996952949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfEnergyOil: 0
-  amountOfEnergyCoal: 0
-  amountOfEnergyGas: 0
-  amountOfEnergySolar: 0
-  amountOfEnergyWind: 0
-  amountOfEnergyNuclear: 0
+  requiredText: {fileID: 0}
+  productionText: {fileID: 0}
+  energyRequired: 0
+  greenTotal: 0
+  amountOfEnergyOil: 1
+  amountOfEnergyCoal: 3
+  amountOfEnergyGas: 2
+  amountOfEnergySolar: 2
+  amountOfEnergyWind: 3
+  amountOfEnergyNuclear: 5
   energyBarSlider: {fileID: 0}

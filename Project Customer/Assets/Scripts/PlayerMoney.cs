@@ -59,7 +59,7 @@ public class PlayerMoney : MonoBehaviour
     void calculateIncome()
     {
         baseIncome = energyScript.greenTotal * 100;
-        Debug.Log(baseIncome);
+        //Debug.Log(baseIncome);
         popularityModifier = popularity.fillAmount * 2;
         currentIncome = baseIncome * popularityModifier;
     }
