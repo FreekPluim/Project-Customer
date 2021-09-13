@@ -924,7 +924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4535741216415863077, guid: 2a639a87fe6ff7140976888701bc3f4a, type: 3}
       propertyPath: windPrice
-      value: 4000
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 4535741216415863077, guid: 2a639a87fe6ff7140976888701bc3f4a, type: 3}
       propertyPath: popularity
@@ -932,7 +932,7 @@ PrefabInstance:
       objectReference: {fileID: 638632823}
     - target: {fileID: 4535741216415863077, guid: 2a639a87fe6ff7140976888701bc3f4a, type: 3}
       propertyPath: solarPrice
-      value: 3000
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 4535741216415863077, guid: 2a639a87fe6ff7140976888701bc3f4a, type: 3}
       propertyPath: nuclearPrice
@@ -948,15 +948,15 @@ PrefabInstance:
       objectReference: {fileID: 1331463870}
     - target: {fileID: 4535741216415863079, guid: 2a639a87fe6ff7140976888701bc3f4a, type: 3}
       propertyPath: amountOfPolutionGas
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4535741216415863079, guid: 2a639a87fe6ff7140976888701bc3f4a, type: 3}
       propertyPath: amountOfPolutionOil
-      value: 1
+      value: 0.625
       objectReference: {fileID: 0}
     - target: {fileID: 4535741216415863079, guid: 2a639a87fe6ff7140976888701bc3f4a, type: 3}
       propertyPath: amountOfPolutionCoal
-      value: 1
+      value: 0.875
       objectReference: {fileID: 0}
     - target: {fileID: 4535741216415863099, guid: 2a639a87fe6ff7140976888701bc3f4a, type: 3}
       propertyPath: requiredText
