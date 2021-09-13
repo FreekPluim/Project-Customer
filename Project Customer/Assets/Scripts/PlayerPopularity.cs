@@ -18,14 +18,35 @@ public class PlayerPopularity : MonoBehaviour
     float calculatedPopularity;
     float energyModifier;
 
+    float oldRequired;
+    float oldProducing;
+
+    bool tutorialOver;
+
     private void Start()
     {
         playerEnergy = transform.GetComponentInParent<PlayerEnergy>();
+
+        oldRequired = playerEnergy.energyRequired;
+        oldProducing = playerEnergy.greenTotal;
     }
+
+    
 
     void CalculateEnergyModifier()
     {
-        
+        if(playerEnergy.energyRequired != oldRequired && playerEnergy.energyRequired >= playerEnergy.greenTotal) 
+        {
+            float difference = playerEnergy.energyRequired - oldRequired;
+            DecreasePopularity(difference * 50);
+        }
+        if (playerEnergy.greenTotal != oldProducing)
+        {
+            float difference = playerEnergy.greenTotal - oldProducing;
+            IncreasePopularity(difference * 50);
+        }
+        oldRequired = playerEnergy.energyRequired;
+        oldProducing = playerEnergy.greenTotal;
     }
 
     void CalculatePopularity()
@@ -35,11 +56,13 @@ public class PlayerPopularity : MonoBehaviour
 
     public void IncreasePopularity(float IncreasePopularity)
     {
+        Debug.Log("<b>Increased</b> by: <b>" + IncreasePopularity + "</b>");
         currentPopularity += IncreasePopularity;
     }
 
     public void DecreasePopularity(float DecreasePopularity)
     {
+        Debug.Log("<b>Decreased</b> by: <b>" + DecreasePopularity + "</b>");
         currentPopularity -= DecreasePopularity;
     }
     void SetSlider()
@@ -67,6 +90,14 @@ public class PlayerPopularity : MonoBehaviour
         if(currentPopularity <= 0)
         {
             SceneManager.LoadScene(2);
+        }
+        if (playerEnergy.greenTotal >= 6) tutorialOver = true;
+        if (tutorialOver)
+        {
+            if (playerEnergy.energyRequired != oldRequired || playerEnergy.greenTotal != oldProducing)
+            {
+                CalculateEnergyModifier();
+            }
         }
     }
 }

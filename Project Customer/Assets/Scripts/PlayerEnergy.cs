@@ -8,8 +8,7 @@ public class PlayerEnergy : MonoBehaviour
     [SerializeField] Text requiredText;
     [SerializeField] Text productionText;
 
-    float energyRequired;
-    float newEnergyRequired;
+    public float energyRequired;
     float expectedRequired;
     float energyProducing;
     float pollutingTotal;
@@ -36,7 +35,7 @@ public class PlayerEnergy : MonoBehaviour
     public Slider energyBarSlider;
     private void Start()
     {
-        newEnergyRequired = 6;
+        energyRequired = 6;
         //energyRequired += pollutingTotal;
     }
 
@@ -53,7 +52,7 @@ public class PlayerEnergy : MonoBehaviour
         if(expectedRequired != pollutingTotal)
         {
             float difference = expectedRequired - pollutingTotal;
-            newEnergyRequired += difference;
+            energyRequired += difference;
             Debug.Log(difference);
             expectedRequired = pollutingTotal;
         }
@@ -83,13 +82,12 @@ public class PlayerEnergy : MonoBehaviour
         greenTotal = solarTotal + windTotal + nuclearTotal;
         pollutingTotal = oilTotal + gasTotal + coalTotal;
         float total = oilTotal + gasTotal + coalTotal + solarTotal + windTotal + nuclearTotal;
-        //energyBarSlider.value = total;
         SetEnergyTexts();
     }
 
     void SetEnergyTexts()
     {
-        requiredText.text = "Required: " + newEnergyRequired;
+        requiredText.text = "Required: " + energyRequired;
         productionText.text = "Producing: " + greenTotal.ToString();
     }
 }
