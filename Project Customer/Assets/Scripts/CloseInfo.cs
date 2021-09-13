@@ -7,7 +7,7 @@ public class CloseInfo : MonoBehaviour
     GameObject linkedObject;
     GameObject playerData;
 
-    float price;
+    float destroyPrice;
 
     private void Start()
     {
@@ -31,16 +31,17 @@ public class CloseInfo : MonoBehaviour
     public void LinkObjectAndPrice(GameObject LinkedObject, float price)
     {
         linkedObject = LinkedObject;
+        destroyPrice = price;
     }
 
     public void OnBuyDestroyButtonPress()
     {
         if (linkedObject != null)
         {
-            if (playerData.GetComponent<PlayerMoney>().money >= price)
+            if (playerData.GetComponent<PlayerMoney>().money >= destroyPrice)
             {
                 Destroy(linkedObject);
-                playerData.GetComponent<PlayerMoney>().RemoveMoney(price);
+                playerData.GetComponent<PlayerMoney>().RemoveMoney(destroyPrice);
                 gameObject.SetActive(false);
             }
             else

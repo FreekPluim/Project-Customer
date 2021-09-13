@@ -29,7 +29,7 @@ public class HoverTextCoalBurner : MonoBehaviour
     public void OnMouseOver()
     {
         coalBurnerText.SetActive(true);
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButtonUp("Fire1"))
         {
             coalInfo.GetComponent<CloseInfo>().LinkObjectAndPrice(gameObject, price);
             coalInfo.SetActive(true);

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
+    [SerializeField] OpenSettings openScript;
 
     public AudioMixer audioMixer;
 
@@ -72,6 +73,7 @@ public class SettingsMenu : MonoBehaviour
 
     public void OnCloseButton()
     {
+        openScript.settingsOpen = false;
         gameObject.SetActive(false);
     }
 }

@@ -5,12 +5,14 @@ using UnityEngine;
 public class OpenSettings : MonoBehaviour
 {
     [SerializeField] GameObject settingsMenu;
+    public bool settingsOpen;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyUp(KeyCode.Escape))
         {
-            settingsMenu.SetActive(true);
+            settingsOpen = !settingsOpen;
+            settingsMenu.SetActive(settingsOpen);
         }   
     }
 }

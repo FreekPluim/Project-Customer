@@ -31,28 +31,37 @@ public class BuyingMenuBehaviour : MonoBehaviour
 
     public void OnSolarPressed()
     {
-        moneyManager.GetComponent<PlayerMoney>().RemoveMoney( moneyManager.GetComponent<PlayerMoney>().solarPrice);
-        builder.GetComponent<Controls>().building = solarPanel;
-        builder.GetComponent<Controls>().previewPlaced = false;
-        builder.GetComponent<Controls>().isBuilding = true;
-        gameObject.SetActive(false);
+        if(moneyManager.GetComponent<PlayerMoney>().money >= moneyManager.GetComponent<PlayerMoney>().solarPrice)
+        {
+            moneyManager.GetComponent<PlayerMoney>().RemoveMoney(moneyManager.GetComponent<PlayerMoney>().solarPrice);
+            builder.GetComponent<Controls>().building = solarPanel;
+            builder.GetComponent<Controls>().previewPlaced = false;
+            builder.GetComponent<Controls>().isBuilding = true;
+            gameObject.SetActive(false);
+        }
     }
 
     public void OnWindPressed()
     {
-        moneyManager.GetComponent<PlayerMoney>().RemoveMoney(moneyManager.GetComponent<PlayerMoney>().windPrice);
-        builder.GetComponent<Controls>().building = Windmill;
-        builder.GetComponent<Controls>().previewPlaced = false;
-        builder.GetComponent<Controls>().isBuilding = true;
-        gameObject.SetActive(false);
+        if (moneyManager.GetComponent<PlayerMoney>().money >= moneyManager.GetComponent<PlayerMoney>().windPrice)
+        {
+            moneyManager.GetComponent<PlayerMoney>().RemoveMoney(moneyManager.GetComponent<PlayerMoney>().windPrice);
+            builder.GetComponent<Controls>().building = Windmill;
+            builder.GetComponent<Controls>().previewPlaced = false;
+            builder.GetComponent<Controls>().isBuilding = true;
+            gameObject.SetActive(false);
+        }
     }
 
     public void OnNuclearPressed()
     {
-        moneyManager.GetComponent<PlayerMoney>().RemoveMoney(moneyManager.GetComponent<PlayerMoney>().nuclearPrice);
-        builder.GetComponent<Controls>().building = nuclearEnergy;
-        builder.GetComponent<Controls>().previewPlaced = false;
-        builder.GetComponent<Controls>().isBuilding = true;
-        gameObject.SetActive(false);
+        if (moneyManager.GetComponent<PlayerMoney>().money >= moneyManager.GetComponent<PlayerMoney>().nuclearPrice)
+        {
+            moneyManager.GetComponent<PlayerMoney>().RemoveMoney(moneyManager.GetComponent<PlayerMoney>().nuclearPrice);
+            builder.GetComponent<Controls>().building = nuclearEnergy;
+            builder.GetComponent<Controls>().previewPlaced = false;
+            builder.GetComponent<Controls>().isBuilding = true;
+            gameObject.SetActive(false);
+        }
     }
 }
