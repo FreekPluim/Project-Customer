@@ -62,8 +62,4 @@ public class PlayerCO2 : MonoBehaviour
         yield return new WaitForSeconds(1);
         StartCoroutine(PolutionPs());
     }
-
-    
-
-
 }

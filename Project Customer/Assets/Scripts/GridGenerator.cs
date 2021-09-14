@@ -23,7 +23,7 @@ public class GridGenerator : MonoBehaviour
             for (int x = 2; x < xSize; x += 4)
             {
                 id++;
-                Vector3 position = new Vector3(x - xSize / 2, -0.01f, z - zSize / 2);
+                Vector3 position = new Vector3(x - xSize / 2, 0, z - zSize / 2);
 
                 GameObject Node = Instantiate(node, position, Quaternion.identity);
                 script = Node.GetComponent<NodeScript>();

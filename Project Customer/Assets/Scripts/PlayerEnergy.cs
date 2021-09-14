@@ -8,10 +8,8 @@ public class PlayerEnergy : MonoBehaviour
     [SerializeField] Text requiredText;
     [SerializeField] Text productionText;
 
-    float energyRequired;
     float newEnergyRequired;
     float expectedRequired;
-    float energyProducing;
     float pollutingTotal;
     public float greenTotal;
 
@@ -33,19 +31,38 @@ public class PlayerEnergy : MonoBehaviour
     public float amountOfEnergyWind;
     public float amountOfEnergyNuclear;
 
+    public float solarBoost;
+    public float windBoost;
+
+    float oilTotal;
+    float gasTotal;
+    float coalTotal;
+
+    float solarTotal;
+    float windTotal;
+    float nuclearTotal;
+
+    bool energySet = false;
+
+    CloseInfo closeInfo;
+
     public Slider energyBarSlider;
     private void Start()
     {
         newEnergyRequired = 6;
-        //energyRequired += pollutingTotal;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         CheckFactoryCount();
         EnergyBarUpdate();
 
-        if(expectedRequired == 0)
+        if (pollutingTotal == 0)
+        {
+            pollutingEnergy();
+        }
+
+        if (expectedRequired == 0)
         {
             expectedRequired = pollutingTotal;
         }
@@ -72,24 +89,33 @@ public class PlayerEnergy : MonoBehaviour
 
     void EnergyBarUpdate()
     {
-        float oilTotal = amountOfEnergyOil * oil.Length;
-        float gasTotal = amountOfEnergyGas * gas.Length;
-        float coalTotal = amountOfEnergyCoal * coal.Length;
-        
-        float solarTotal = amountOfEnergySolar * solar.Length;
-        float windTotal = amountOfEnergyWind * wind.Length;
-        float nuclearTotal = amountOfEnergyNuclear * nuclear.Length;
+        oilTotal = amountOfEnergyOil * oil.Length;
+        gasTotal = amountOfEnergyGas * gas.Length;
+        coalTotal = amountOfEnergyCoal * coal.Length;
+
+        solarTotal = amountOfEnergySolar * solar.Length;
+        windTotal = amountOfEnergyWind * wind.Length;
+        nuclearTotal = amountOfEnergyNuclear * nuclear.Length;
 
         greenTotal = solarTotal + windTotal + nuclearTotal;
         pollutingTotal = oilTotal + gasTotal + coalTotal;
         float total = oilTotal + gasTotal + coalTotal + solarTotal + windTotal + nuclearTotal;
-        //energyBarSlider.value = total;
-        SetEnergyTexts();
-    }
-
-    void SetEnergyTexts()
-    {
         requiredText.text = "Required: " + newEnergyRequired;
         productionText.text = "Producing: " + greenTotal.ToString();
+    }
+
+    public void pollutingEnergy()
+    {
+/*        oil = GameObject.FindGameObjectsWithTag("OilRefinery");
+        coal = GameObject.FindGameObjectsWithTag("CoalBurner");
+        gas = GameObject.FindGameObjectsWithTag("GasProcessingPlant");
+
+        oilTotal = amountOfEnergyOil * oil.Length;
+        gasTotal = amountOfEnergyGas * gas.Length;
+        coalTotal = amountOfEnergyCoal * coal.Length;
+
+        
+
+        Debug.Log("total" + pollutingTotal);*/
     }
 }

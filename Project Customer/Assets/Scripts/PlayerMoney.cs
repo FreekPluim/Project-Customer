@@ -31,11 +31,13 @@ public class PlayerMoney : MonoBehaviour
     [SerializeField] float popularityModifier;
     [SerializeField] float currentIncome;
     float incomeTimer = 10;
-    
+
+    float currentGreenTotal;
 
     private void Start()
     {
         energyScript = gameObject.GetComponent<PlayerEnergy>();
+        currentGreenTotal = energyScript.greenTotal;
         StartCoroutine(IncomePerMonth());
     }
 
@@ -58,10 +60,15 @@ public class PlayerMoney : MonoBehaviour
 
     void calculateIncome()
     {
-        baseIncome = energyScript.greenTotal * 100;
-        Debug.Log(baseIncome);
-        popularityModifier = popularity.fillAmount * 2;
-        currentIncome = baseIncome * popularityModifier;
+        if(energyScript.greenTotal != currentGreenTotal)
+        {
+            baseIncome = energyScript.greenTotal * 100;
+            Debug.Log(baseIncome);
+            popularityModifier = popularity.fillAmount * 2;
+            currentIncome = baseIncome * popularityModifier;
+            currentGreenTotal = energyScript.greenTotal;
+        }
+
     }
 
     IEnumerator IncomePerMonth()
