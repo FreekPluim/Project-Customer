@@ -14,23 +14,10 @@ public class NodeScript : MonoBehaviour
 
 
     Ray ray;
-    RaycastHit hit;
     public bool available = true;
 
     Vector3 tilePos;
     Vector3 cityPos;
-    Vector3 plantPos;
-
-    /*    public enum NodeType{
-            Ocean,
-            Plains,
-            Desert,
-            Hills,
-            Forest,
-            City
-        };
-
-        public NodeType type;*/
 
     public int id;
     public int typeID;
@@ -43,13 +30,11 @@ public class NodeScript : MonoBehaviour
     {
         ray = new Ray(transform.localPosition, Vector3.up);
         tilePos = new Vector3(transform.localPosition.x, (transform.localPosition.y - ocean.transform.localScale.y * 0.5f), transform.localPosition.z);
-        cityPos = new Vector3(transform.localPosition.x, (transform.localPosition.y + 0.01f + city.transform.localScale.y * 0.5f), transform.localPosition.z);
-        plantPos = new Vector3(transform.localPosition.x, (transform.localPosition.y + oil.transform.localScale.y * 0.5f), transform.localPosition.z);
+        cityPos = new Vector3(transform.localPosition.x, 1, transform.localPosition.z + 1); //transform.localPosition.y + 0.01f + city.transform.localScale.y * 0.5f
     }
 
     private void Update()
     {
-        
         if (Physics.Raycast(ray, 1f) && available)
         {
             Debug.Log("ray hit!");
@@ -90,7 +75,9 @@ public class NodeScript : MonoBehaviour
                 Debug.Log("Forest not yet implemented");
                 break;
             case 5:     //City
-                Instantiate(city, cityPos, Quaternion.identity);
+                Instantiate(plains, tilePos, Quaternion.identity);
+                GameObject City = Instantiate(city, cityPos, transform.rotation = Quaternion.Euler(-90, 0, 0));
+                //City.transform.localScale = new Vector3(200, 200, 200);
                 title = "City";
                 available = false;
                 Debug.Log("City spawned!");
@@ -118,7 +105,7 @@ public class NodeScript : MonoBehaviour
                 Instantiate(oil, transform.localPosition, Quaternion.identity);
                 break;
             case 1:
-                Instantiate(gas, transform.localPosition, Quaternion.identity);
+                Instantiate(gas, transform.localPosition, transform.rotation = Quaternion.Euler(0, 180, 0));
                 break;
             case 2:
                 Instantiate(coal, transform.localPosition, coal.transform.rotation);

@@ -8,14 +8,16 @@ public class BuyingMenuBehaviour : MonoBehaviour
     [SerializeField] GameObject solarPanel;
     [SerializeField] GameObject nuclearEnergy;
 
-    private GameObject builder;
-    private GameObject moneyManager;
+    private Controls builder;
+    private PlayerMoney moneyManager;
 
+    [HideInInspector] public bool placingSolar;
+    [HideInInspector] public bool placingWind;
 
     private void Start()
     {
-        moneyManager = GameObject.FindGameObjectWithTag("PlayerData");
-        builder = GameObject.FindGameObjectWithTag("Builder");
+        moneyManager = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<PlayerMoney>();
+        builder = GameObject.FindGameObjectWithTag("Builder").GetComponent<Controls>();
     }
 
     private void FixedUpdate()
@@ -31,37 +33,39 @@ public class BuyingMenuBehaviour : MonoBehaviour
 
     public void OnSolarPressed()
     {
-        if(moneyManager.GetComponent<PlayerMoney>().money >= moneyManager.GetComponent<PlayerMoney>().solarPrice)
+        if(moneyManager.money >= moneyManager.solarPrice)
         {
-            moneyManager.GetComponent<PlayerMoney>().RemoveMoney(moneyManager.GetComponent<PlayerMoney>().solarPrice);
-            builder.GetComponent<Controls>().building = solarPanel;
-            builder.GetComponent<Controls>().previewPlaced = false;
-            builder.GetComponent<Controls>().isBuilding = true;
+            moneyManager.RemoveMoney(moneyManager.solarPrice);
+            builder.building = solarPanel;
+            builder.previewPlaced = false;
+            builder.isBuilding = true;
+            placingSolar = true;
             gameObject.SetActive(false);
         }
     }
 
     public void OnWindPressed()
     {
-        if (moneyManager.GetComponent<PlayerMoney>().money >= moneyManager.GetComponent<PlayerMoney>().windPrice)
+        if (moneyManager.money >= moneyManager.windPrice)
         {
-            moneyManager.GetComponent<PlayerMoney>().RemoveMoney(moneyManager.GetComponent<PlayerMoney>().windPrice);
-            builder.GetComponent<Controls>().building = Windmill;
-            builder.GetComponent<Controls>().previewPlaced = false;
-            builder.GetComponent<Controls>().isBuilding = true;
+            moneyManager.RemoveMoney(moneyManager.windPrice);
+            builder.building = Windmill;
+            builder.previewPlaced = false;
+            builder.isBuilding = true;
+            placingWind = true;
             gameObject.SetActive(false);
         }
     }
 
     public void OnNuclearPressed()
     {
-        if (moneyManager.GetComponent<PlayerMoney>().money >= moneyManager.GetComponent<PlayerMoney>().nuclearPrice)
+        if (moneyManager.money >= moneyManager.nuclearPrice)
         {
-            moneyManager.GetComponent<PlayerMoney>().RemoveMoney(moneyManager.GetComponent<PlayerMoney>().nuclearPrice);
-            builder.GetComponent<Controls>().building = nuclearEnergy;
-            builder.GetComponent<Controls>().previewPlaced = false;
-            builder.GetComponent<Controls>().isBuilding = true;
-            gameObject.SetActive(false);
+            moneyManager.RemoveMoney(moneyManager.nuclearPrice);
+            builder.building = nuclearEnergy;
+            builder.previewPlaced = false;
+            builder.isBuilding = true;
+            gameObject.SetActive(false); 
         }
     }
 }

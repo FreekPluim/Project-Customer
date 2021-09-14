@@ -7,11 +7,14 @@ public class CloseInfo : MonoBehaviour
     GameObject linkedObject;
     GameObject playerData;
 
+    PlayerEnergy energyScript;
+
     float destroyPrice;
 
     private void Start()
     {
         playerData = GameObject.FindGameObjectWithTag("PlayerData");
+        energyScript = playerData.GetComponent<PlayerEnergy>();
     }
 
     private void FixedUpdate()
@@ -49,6 +52,6 @@ public class CloseInfo : MonoBehaviour
                 Debug.Log("Not Enough Money");
             }
         }
+        energyScript.pollutingEnergy();
     }
-
 }

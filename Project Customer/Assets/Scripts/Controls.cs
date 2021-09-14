@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Controls : MonoBehaviour
 {
     [SerializeField] GameObject previewBuilding;
-    public GameObject building;
+    [HideInInspector] public GameObject building;
     [SerializeField] Material previewRed;
     [SerializeField] Material previewGreen;
     [SerializeField] Camera cam;
@@ -21,6 +21,8 @@ public class Controls : MonoBehaviour
     GameObject preview;
     GameObject closestNode;
     Renderer previewRenderer;
+    BuyingMenuBehaviour buyMenu;
+    PlayerEnergy energy;
 
     NodeScript nodeScript;
 
@@ -34,6 +36,14 @@ public class Controls : MonoBehaviour
 
     bool placingSolar = false;
     bool placingWind = false;
+    float solarEnergy;
+    float windEnergy;
+
+    private void Awake()
+    {
+        buyMenu = GameObject.FindGameObjectWithTag("BuyingMenu").GetComponent<BuyingMenuBehaviour>();
+
+    }
 
     private void Start()
     {
@@ -46,6 +56,10 @@ public class Controls : MonoBehaviour
         {
             nodesPos.Add(node.transform.position);
         }
+
+        energy = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<PlayerEnergy>();
+        solarEnergy = energy.amountOfEnergySolar;
+        windEnergy = energy.amountOfEnergyWind;
 
         mousePos = Vector3.zero;
     }
@@ -60,6 +74,8 @@ public class Controls : MonoBehaviour
         FindClosestNode();
         BuildMode();
         DisplayNodeStats();
+        Debug.Log(solarEnergy);
+        Debug.Log(windEnergy);
     }
 
     void FindClosestNode()
@@ -107,20 +123,6 @@ public class Controls : MonoBehaviour
     {
         if (!settings.settingsOpen)
         {
-/*            if (Input.GetKeyDown(KeyCode.B) && !isBuilding)
-            {
-                previewPlaced = false;
-                isBuilding = true;
-                placingSolar = true;
-            }
-
-            if (Input.GetKeyDown(KeyCode.C) && !isBuilding)
-            {
-                previewPlaced = false;
-                isBuilding = true;
-                placingWind = true;
-            }*/
-
             if (!previewPlaced)
             {
                 preview = Instantiate(previewBuilding, Vector3.zero, Quaternion.identity);
@@ -133,6 +135,14 @@ public class Controls : MonoBehaviour
                 if (preview != null)
                 {
                     preview.transform.localPosition = new Vector3(closestNode.transform.localPosition.x, closestNode.transform.localPosition.y + preview.transform.localScale.y * 0.5f, closestNode.transform.localPosition.z);
+                }
+
+                if (!buyMenu.placingWind)
+                {
+                    if(nodeScript.typeID == 0)
+                    {
+                        nodeScript.available = false;
+                    }
                 }
 
                 if (nodeScript.available)
@@ -154,12 +164,33 @@ public class Controls : MonoBehaviour
                     Destroy(preview);
                     //nodeScript.available = false;
 
+                    if (buyMenu.placingSolar && nodeScript.typeID == 2)
+                    {
+                        energy.amountOfEnergySolar *= energy.solarBoost;
+                    }
+                    else
+                    {
+                        energy.amountOfEnergySolar = solarEnergy;
+                    }
+
+                    if (buyMenu.placingWind && nodeScript.typeID == 0)
+                    {
+                        energy.greenTotal += energy.windBoost;
+                    }
+                    else
+                    {
+                        //energy.amountOfEnergyWind = windEnergy;
+                    }
+
+                    buyMenu.placingSolar = false;
+                    buyMenu.placingWind = false;
                     isBuilding = false;
                 }
                 else
                 {
                     Debug.Log("No space!");
                 }
+                
             }
         }
     }
@@ -170,11 +201,12 @@ public class Controls : MonoBehaviour
         {
             nodeStatUI.SetActive(true);
             title.text = nodeScript.title;
-            if (placingSolar)
+
+            if (buyMenu.placingSolar)
             {
                 productionBoost.text = "Solar boost: " + nodeScript.solarBoost;
             }
-            if (placingWind)
+            if (buyMenu.placingWind)
             {
                 productionBoost.text = "Wind boost: " + nodeScript.windBoost;
             }
