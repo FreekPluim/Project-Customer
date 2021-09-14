@@ -35,6 +35,8 @@ public class Controls : MonoBehaviour
     bool placingSolar = false;
     bool placingWind = false;
 
+    AudioManager audioManager;
+
     private void Start()
     {
         if (nodes == null)
@@ -48,6 +50,8 @@ public class Controls : MonoBehaviour
         }
 
         mousePos = Vector3.zero;
+
+        audioManager = GameObject.FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -107,20 +111,6 @@ public class Controls : MonoBehaviour
     {
         if (!settings.settingsOpen)
         {
-/*            if (Input.GetKeyDown(KeyCode.B) && !isBuilding)
-            {
-                previewPlaced = false;
-                isBuilding = true;
-                placingSolar = true;
-            }
-
-            if (Input.GetKeyDown(KeyCode.C) && !isBuilding)
-            {
-                previewPlaced = false;
-                isBuilding = true;
-                placingWind = true;
-            }*/
-
             if (!previewPlaced)
             {
                 preview = Instantiate(previewBuilding, Vector3.zero, Quaternion.identity);
@@ -152,6 +142,7 @@ public class Controls : MonoBehaviour
                 {
                     Instantiate(building, new Vector3(closestNode.transform.localPosition.x, closestNode.transform.localPosition.y + 0.01f, closestNode.transform.localPosition.z), building.transform.rotation);
                     Destroy(preview);
+                    if(audioManager != null) audioManager.Play("Building");
                     //nodeScript.available = false;
 
                     isBuilding = false;
