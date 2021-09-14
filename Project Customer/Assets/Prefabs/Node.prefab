@@ -46,10 +46,10 @@ MonoBehaviour:
   ocean: {fileID: 8220285154628244938, guid: 79223ac5453d5cb47821cdbb9fa74ed4, type: 3}
   plains: {fileID: 1451963155677199823, guid: 5232d339f402cd047b32a47cb0fbe073, type: 3}
   desert: {fileID: 7437313235313089633, guid: ef801baddea849148bf50985a5058ec9, type: 3}
-  city: {fileID: 1696728493083908878, guid: 855c797e050eca041b25e9eee6f09940, type: 3}
+  city: {fileID: 6082772596392526079, guid: 9ab8efa1e8484ac4a86cf1e733005b79, type: 3}
   oil: {fileID: 7905506755310918667, guid: 06efe46a1a7f7ee47b657a44efeafe82, type: 3}
-  gas: {fileID: 8028391638567038940, guid: 98c40769ac8c75f48bffd315d9c29772, type: 3}
-  coal: {fileID: 3190721407087002537, guid: 1d4bfa2e67ef3e14f9312b04cf574507, type: 3}
+  gas: {fileID: 5406529469709422288, guid: 26a7845cc67fccb49bb7929df461077d, type: 3}
+  coal: {fileID: 3190721407087002537, guid: c2f643f62e4e34141ba14652e2c97ff1, type: 3}
   available: 1
   id: 0
   typeID: 0
