@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
-    [SerializeField] Text text1;
-    [SerializeField] Text text2;
-    [SerializeField] Text text3;
-    [SerializeField] Text text4;
+    [SerializeField] Image text1;
+    [SerializeField] Image text2;
+    [SerializeField] Image text3;
+    [SerializeField] Image text4;
 
     GameObject buyingMenu;
     PlayerEnergy energy;
@@ -49,6 +49,7 @@ public class Tutorial : MonoBehaviour
 
         if(energy.greenTotal >= 6 && timer2 > 0)
         {
+            text3.gameObject.SetActive(true);
             timer2 -= Time.deltaTime;
         }
 

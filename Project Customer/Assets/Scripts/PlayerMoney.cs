@@ -67,7 +67,7 @@ public class PlayerMoney : MonoBehaviour
 
     IEnumerator IncomePerMonth()
     {
-        GetMoney(currentIncome);
+        GetMoney(Mathf.RoundToInt(currentIncome));
         yield return new WaitForSeconds(incomeTimer);
         StartCoroutine(IncomePerMonth());
     }

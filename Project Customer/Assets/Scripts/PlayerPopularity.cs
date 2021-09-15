@@ -13,7 +13,11 @@ public class PlayerPopularity : MonoBehaviour
     public float decreaseNuclearDistance;
 
     public Image popularityBar;
-    [SerializeField] PlayerEnergy playerEnergy;
+    PlayerEnergy playerEnergy;
+    [SerializeField] Image smiley;
+    [SerializeField] Sprite angry;
+    [SerializeField] Sprite neutral;
+    [SerializeField] Sprite happy;
 
     float calculatedPopularity;
     float energyModifier;
@@ -74,13 +78,16 @@ public class PlayerPopularity : MonoBehaviour
         if (calculatedPopularity <= 0.3f)
         {
             popularityBar.color = Color.red;
+            smiley.sprite = angry;
         } else if (calculatedPopularity <= 0.7f)
         {
             popularityBar.color = Color.yellow;
+            smiley.sprite = neutral;
         }
         else
         {
             popularityBar.color = Color.green;
+            smiley.sprite = happy;
         }
         
     }
@@ -106,6 +113,11 @@ public class PlayerPopularity : MonoBehaviour
                 StartCoroutine(decreasePerSecond());
                 coroutineStarted = true;
             }   
+        }
+
+        if(currentPopularity > maxPopularity)
+        {
+            currentPopularity = maxPopularity;
         }
     }
 

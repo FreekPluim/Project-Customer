@@ -66,7 +66,7 @@ public class PlayerCO2 : MonoBehaviour
 
     public void DecreaseCO2(float decrease)
     {
-        co2Bar.fillAmount -= decrease;
+        currentCO2 -= decrease;
     }
 
     IEnumerator PolutionPs()
