@@ -22,18 +22,18 @@ public class WorldGenerator : MonoBehaviour
     // 5 = City
     // 6 = power plant
 
-    int[] nodeTypes = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                          0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-                          0, 1, 1, 1, 1, 1, 1, 1, 1, 6, 1, 0,
-                          0, 1, 1, 1, 6, 1, 1, 1, 1, 1, 1, 0,
-                          0, 1, 1, 5, 1, 1, 1, 5, 1, 1, 1, 0,
-                          0, 1, 6, 1, 1, 1, 6, 1, 1, 1, 1, 0,
-                          0, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, 0,
-                          0, 1, 2, 2, 2, 1, 1, 1, 5, 1, 1, 0,
-                          0, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 0,
-                          0, 1, 1, 1, 6, 1, 1, 1, 6, 1, 1, 0,
-                          0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-                          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    int[] nodeTypes = {0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+                          2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,
+                          2, 1, 1, 1, 1, 1, 1, 1, 1, 6, 1, 2,
+                          2, 1, 1, 1, 6, 1, 1, 1, 1, 1, 1, 2,
+                          2, 1, 1, 5, 1, 1, 1, 5, 1, 1, 1, 2,
+                          2, 1, 6, 1, 1, 1, 6, 1, 1, 1, 1, 2,
+                          2, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, 2,
+                          2, 1, 2, 2, 2, 1, 1, 1, 5, 1, 1, 2,
+                          2, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 2,
+                          2, 1, 1, 1, 6, 1, 1, 1, 6, 1, 1, 2,
+                          2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,
+                          2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };
 
     private void Start()
     {
@@ -47,11 +47,6 @@ public class WorldGenerator : MonoBehaviour
 
         LoadNodeTypes();
         GenerateBuildings();
-    }
-
-    private void Update()
-    {
-        
     }
 
     void LoadNodeTypes()
@@ -85,27 +80,5 @@ public class WorldGenerator : MonoBehaviour
                 plainsNodes.Add(node);
             }
         }
-
-
     }
-
-/*    void PlaceCities()
-    {
-        foreach(GameObject node in nodes)
-        {
-            nodeScript = node.GetComponent<NodeScript>();
-            if(nodeScript.typeID == 1)
-            {
-                plainsNodes.Add(node);
-            }
-        }
-
-        Debug.Log(plainsNodes.Count);
-
-        for(int i = 0; i < 4; i++)
-        {
-            GameObject randomNode = plainsNodes[Random.Range(0, plainsNodes.Count)];
-            randomNode.GetComponent<NodeScript>().SetNodeType(5);
-        }
-    }*/
 }

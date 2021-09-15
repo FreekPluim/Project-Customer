@@ -7,10 +7,14 @@ public class BuyingMenuBehaviour : MonoBehaviour
     [SerializeField] GameObject Windmill;
     [SerializeField] GameObject solarPanel;
     [SerializeField] GameObject nuclearEnergy;
+    [SerializeField] GameObject trees;
 
     private GameObject builder;
     private GameObject moneyManager;
 
+    [HideInInspector] public bool placingWind = false;
+    [HideInInspector] public bool placingSolar = false;
+    [HideInInspector] public bool placingTrees = false;
 
     private void Start()
     {
@@ -31,12 +35,13 @@ public class BuyingMenuBehaviour : MonoBehaviour
 
     public void OnSolarPressed()
     {
-        if(moneyManager.GetComponent<PlayerMoney>().money >= moneyManager.GetComponent<PlayerMoney>().solarPrice)
+        if (moneyManager.GetComponent<PlayerMoney>().money >= moneyManager.GetComponent<PlayerMoney>().solarPrice)
         {
             moneyManager.GetComponent<PlayerMoney>().RemoveMoney(moneyManager.GetComponent<PlayerMoney>().solarPrice);
             builder.GetComponent<Controls>().building = solarPanel;
             builder.GetComponent<Controls>().previewPlaced = false;
             builder.GetComponent<Controls>().isBuilding = true;
+            placingSolar = true;
             gameObject.SetActive(false);
         }
     }
@@ -49,6 +54,7 @@ public class BuyingMenuBehaviour : MonoBehaviour
             builder.GetComponent<Controls>().building = Windmill;
             builder.GetComponent<Controls>().previewPlaced = false;
             builder.GetComponent<Controls>().isBuilding = true;
+            placingWind = true;
             gameObject.SetActive(false);
         }
     }
@@ -61,6 +67,19 @@ public class BuyingMenuBehaviour : MonoBehaviour
             builder.GetComponent<Controls>().building = nuclearEnergy;
             builder.GetComponent<Controls>().previewPlaced = false;
             builder.GetComponent<Controls>().isBuilding = true;
+            gameObject.SetActive(false);
+        }
+    }
+
+    public void OnTreesPressed()
+    {
+        if (moneyManager.GetComponent<PlayerMoney>().money >= moneyManager.GetComponent<PlayerMoney>().nuclearPrice)
+        {
+            moneyManager.GetComponent<PlayerMoney>().RemoveMoney(moneyManager.GetComponent<PlayerMoney>().treePrice);
+            builder.GetComponent<Controls>().building = trees;
+            builder.GetComponent<Controls>().previewPlaced = false;
+            builder.GetComponent<Controls>().isBuilding = true;
+            placingTrees = true;
             gameObject.SetActive(false);
         }
     }

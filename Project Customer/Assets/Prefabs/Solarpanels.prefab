@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4577345192740676052}
   - component: {fileID: 588322997608738417}
   - component: {fileID: 3444923792189135547}
+  - component: {fileID: 1114231629538479024}
   m_Layer: 0
   m_Name: Solarpanels
   m_TagString: SolarPannel
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1114231629538479024
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3805031099031501678}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.006286746, y: 0.020000007, z: 0.020000007}
+  m_Center: {x: -0.0031433702, y: -0.0015000004, z: 0.0027000008}

@@ -36,19 +36,20 @@ public class CloseInfo : MonoBehaviour
 
     public void OnBuyDestroyButtonPress()
     {
-        if (linkedObject != null)
-        {
-            if (playerData.GetComponent<PlayerMoney>().money >= destroyPrice)
-            {
-                Destroy(linkedObject);
-                playerData.GetComponent<PlayerMoney>().RemoveMoney(destroyPrice);
-                gameObject.SetActive(false);
-            }
-            else
-            {
-                Debug.Log("Not Enough Money");
-            }
-        }
+         if (linkedObject != null)
+         {
+             if (playerData.GetComponent<PlayerMoney>().money >= destroyPrice)
+             {
+                 Destroy(linkedObject);
+                 playerData.GetComponent<PlayerMoney>().RemoveMoney(destroyPrice);
+                 gameObject.SetActive(false);
+             }
+             else
+             {
+                 Debug.Log("Not Enough Money");
+             }
+         }
+        
     }
 
 }

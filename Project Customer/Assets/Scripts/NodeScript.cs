@@ -102,7 +102,7 @@ public class NodeScript : MonoBehaviour
         switch (type)
         {
             case 0:
-                Instantiate(oil, transform.localPosition, Quaternion.identity);
+                Instantiate(oil, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z), oil.transform.localRotation);
                 break;
             case 1:
                 Instantiate(gas, transform.localPosition, transform.rotation = Quaternion.Euler(0, 180, 0));

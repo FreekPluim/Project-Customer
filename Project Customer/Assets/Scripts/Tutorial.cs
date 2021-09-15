@@ -12,6 +12,7 @@ public class Tutorial : MonoBehaviour
 
     GameObject buyingMenu;
     PlayerEnergy energy;
+    PlayerPopularity popularity;
 
     float timer1 = 5f;
     float timer2 = 5f;
@@ -21,6 +22,7 @@ public class Tutorial : MonoBehaviour
     {
         buyingMenu = GameObject.FindGameObjectWithTag("BuyingMenu");
         energy = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<PlayerEnergy>();
+        popularity = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<PlayerPopularity>();
     }
 
     private void Update()
@@ -47,7 +49,6 @@ public class Tutorial : MonoBehaviour
 
         if(energy.greenTotal >= 6 && timer2 > 0)
         {
-            text3.gameObject.SetActive(true);
             timer2 -= Time.deltaTime;
         }
 
@@ -64,6 +65,10 @@ public class Tutorial : MonoBehaviour
 
         if(timer3 <= 0 && text4.gameObject.activeSelf)
         {
+            if(energy.greenTotal >= 6)
+            {
+                popularity.tutorialOver = true;
+            }
             text4.gameObject.SetActive(false);
         }
     }

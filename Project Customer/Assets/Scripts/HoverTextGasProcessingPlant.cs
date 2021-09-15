@@ -8,6 +8,8 @@ public class HoverTextGasProcessingPlant : MonoBehaviour
     private GameObject moneyManager;
     private float price;
 
+    PlayerPopularity popularity;
+
     private void Awake()
     {
         gasInfo = GameObject.FindGameObjectWithTag("GasInfo");
@@ -21,9 +23,13 @@ public class HoverTextGasProcessingPlant : MonoBehaviour
         price = moneyManager.GetComponent<PlayerMoney>().gasPrice;
 
         gasProcessingText.SetActive(false);
-        gasInfo.SetActive(false);
+        if(gasInfo != null)
+        {
+            gasInfo.SetActive(false);
+        }
 
-        
+
+        popularity = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<PlayerPopularity>();
     }
 
     private void Update()
@@ -34,10 +40,13 @@ public class HoverTextGasProcessingPlant : MonoBehaviour
     public void OnMouseOver()
     {
         gasProcessingText.SetActive(true);
-        if (Input.GetButtonUp("Fire1"))
+        if (popularity.tutorialOver)
         {
-            gasInfo.GetComponent<CloseInfo>().LinkObjectAndPrice(gameObject, price);
-            gasInfo.SetActive(true);
+            if (Input.GetButtonUp("Fire1"))
+            {
+                gasInfo.GetComponent<CloseInfo>().LinkObjectAndPrice(gameObject, price);
+                gasInfo.SetActive(true);
+            }
         }
     }
 

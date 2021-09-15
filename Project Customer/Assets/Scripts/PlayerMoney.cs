@@ -19,6 +19,7 @@ public class PlayerMoney : MonoBehaviour
     public float solarPrice;
     public float windPrice;
     public float nuclearPrice;
+    public float treePrice;
 
     [Space]
     [Header("Gameobject References")]

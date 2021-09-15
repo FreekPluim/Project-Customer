@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerEnergy : MonoBehaviour
 {
@@ -55,6 +56,11 @@ public class PlayerEnergy : MonoBehaviour
             energyRequired += difference;
             Debug.Log(difference);
             expectedRequired = pollutingTotal;
+        }
+
+        if(pollutingTotal <= 0 && greenTotal >= energyRequired)
+        {
+            SceneManager.LoadScene(3);
         }
     }
 

@@ -7,6 +7,7 @@ public class HoverTextOilRefinery : MonoBehaviour
 
     private GameObject moneyManager;
     private float price;
+    PlayerPopularity popularity;
 
     private void Awake()
     {
@@ -19,8 +20,13 @@ public class HoverTextOilRefinery : MonoBehaviour
         moneyManager = GameObject.FindGameObjectWithTag("PlayerData");
         price = moneyManager.GetComponent<PlayerMoney>().oilPrice;
 
+        popularity = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<PlayerPopularity>();
+
         oilRefineryText.SetActive(false);
-        oilInfo.SetActive(false);
+        if(oilInfo != null)
+        {
+            oilInfo.SetActive(false);
+        }
     }
 
     private void Update()
@@ -31,10 +37,13 @@ public class HoverTextOilRefinery : MonoBehaviour
     public void OnMouseOver()
     {
         oilRefineryText.SetActive(true);
-        if (Input.GetButtonUp("Fire1"))
+        if (popularity.tutorialOver)
         {
-            oilInfo.GetComponent<CloseInfo>().LinkObjectAndPrice(gameObject, price);
-            oilInfo.SetActive(true);
+            if (Input.GetButtonUp("Fire1"))
+            {
+                oilInfo.GetComponent<CloseInfo>().LinkObjectAndPrice(gameObject, price);
+                oilInfo.SetActive(true);
+            }
         }
     }
 

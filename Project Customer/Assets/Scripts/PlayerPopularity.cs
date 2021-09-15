@@ -21,7 +21,9 @@ public class PlayerPopularity : MonoBehaviour
     float oldRequired;
     float oldProducing;
 
-    bool tutorialOver;
+    public bool tutorialOver;
+
+    bool coroutineStarted = false;
 
     private void Start()
     {
@@ -98,6 +100,19 @@ public class PlayerPopularity : MonoBehaviour
             {
                 CalculateEnergyModifier();
             }
+
+            if (!coroutineStarted)
+            {
+                StartCoroutine(decreasePerSecond());
+                coroutineStarted = true;
+            }   
         }
+    }
+
+    IEnumerator decreasePerSecond()
+    {
+        DecreasePopularity(1);
+        yield return new WaitForSeconds(1);
+        StartCoroutine(decreasePerSecond());
     }
 }

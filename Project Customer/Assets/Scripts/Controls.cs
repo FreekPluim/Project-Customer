@@ -32,9 +32,8 @@ public class Controls : MonoBehaviour
     public bool isBuilding = false;
     public bool previewPlaced = true;
 
-    bool placingSolar = false;
-    bool placingWind = false;
-
+    BuyingMenuBehaviour buyMenu;
+    PlayerCO2 co2;
     AudioManager audioManager;
 
     private void Start()
@@ -48,6 +47,9 @@ public class Controls : MonoBehaviour
         {
             nodesPos.Add(node.transform.position);
         }
+
+        buyMenu = GameObject.FindGameObjectWithTag("BuyingMenu").GetComponent<BuyingMenuBehaviour>();
+        co2 = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<PlayerCO2>();
 
         mousePos = Vector3.zero;
 
@@ -63,7 +65,6 @@ public class Controls : MonoBehaviour
 
         FindClosestNode();
         BuildMode();
-        DisplayNodeStats();
     }
 
     void FindClosestNode()
@@ -125,6 +126,14 @@ public class Controls : MonoBehaviour
                     preview.transform.localPosition = new Vector3(closestNode.transform.localPosition.x, closestNode.transform.localPosition.y + preview.transform.localScale.y * 0.5f, closestNode.transform.localPosition.z);
                 }
 
+                if (nodeScript.typeID == 0)
+                {
+                    if (!buyMenu.placingWind)
+                    {
+                        nodeScript.available = false;
+                    }
+                }
+
                 if (nodeScript.available)
                 {
                     previewRenderer.material = previewGreen;
@@ -143,7 +152,20 @@ public class Controls : MonoBehaviour
                     Instantiate(building, new Vector3(closestNode.transform.localPosition.x, closestNode.transform.localPosition.y + 0.01f, closestNode.transform.localPosition.z), building.transform.rotation);
                     Destroy(preview);
                     if(audioManager != null) audioManager.Play("Building");
-                    //nodeScript.available = false;
+
+                    if (buyMenu.placingWind)
+                    {
+                        buyMenu.placingWind = false;
+                    }
+                    if (buyMenu.placingSolar)
+                    {
+                        buyMenu.placingSolar = false;
+                    }
+                    if (buyMenu.placingTrees)
+                    {
+                        co2.DecreaseCO2(co2.amountOfDecreaseTrees);
+                        buyMenu.placingTrees = false;
+                    }
 
                     isBuilding = false;
                 }
@@ -152,27 +174,6 @@ public class Controls : MonoBehaviour
                     Debug.Log("No space!");
                 }
             }
-        }
-    }
-
-    void DisplayNodeStats()
-    {
-        if (isBuilding)
-        {
-            nodeStatUI.SetActive(true);
-            title.text = nodeScript.title;
-            if (placingSolar)
-            {
-                productionBoost.text = "Solar boost: " + nodeScript.solarBoost;
-            }
-            if (placingWind)
-            {
-                productionBoost.text = "Wind boost: " + nodeScript.windBoost;
-            }
-        }
-        else
-        {
-            nodeStatUI.SetActive(false);
         }
     }
 }
