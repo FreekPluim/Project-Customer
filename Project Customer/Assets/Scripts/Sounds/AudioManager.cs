@@ -32,12 +32,12 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        Play("Background");
+       
     }
 
     public void Play(string name)
     {
         Sounds s = Array.Find(sounds, sound => sound.name == name);
-        s.source.PlayOneShot(s.audioClip);
+        if(s.source != null) s.source.PlayOneShot(s.audioClip);
     }
 }

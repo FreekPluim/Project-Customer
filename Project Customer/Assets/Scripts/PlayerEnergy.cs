@@ -34,10 +34,15 @@ public class PlayerEnergy : MonoBehaviour
     public float amountOfEnergyNuclear;
 
     public Slider energyBarSlider;
+
+    AudioManager sound;
+
     private void Start()
     {
         energyRequired = 6;
         //energyRequired += pollutingTotal;
+
+        if (GameObject.FindObjectOfType<AudioManager>() != null) sound = GameObject.FindObjectOfType<AudioManager>();
     }
 
     private void Update()
@@ -61,6 +66,7 @@ public class PlayerEnergy : MonoBehaviour
         if(pollutingTotal <= 0 && greenTotal >= energyRequired)
         {
             SceneManager.LoadScene(3);
+            sound.Play("winsound");
         }
     }
 
@@ -94,6 +100,6 @@ public class PlayerEnergy : MonoBehaviour
     void SetEnergyTexts()
     {
         requiredText.text = "Required: " + energyRequired;
-        productionText.text = "Producing: " + greenTotal.ToString();
+        productionText.text = "Producing: " + greenTotal;
     }
 }

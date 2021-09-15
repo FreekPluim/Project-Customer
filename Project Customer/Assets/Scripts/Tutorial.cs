@@ -10,7 +10,7 @@ public class Tutorial : MonoBehaviour
     [SerializeField] Image text3;
     [SerializeField] Image text4;
 
-    GameObject buyingMenu;
+    [SerializeField] GameObject buyingMenu;
     PlayerEnergy energy;
     PlayerPopularity popularity;
 

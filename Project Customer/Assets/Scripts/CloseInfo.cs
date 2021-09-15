@@ -9,9 +9,19 @@ public class CloseInfo : MonoBehaviour
 
     float destroyPrice;
 
+    AudioManager sound;
+
     private void Start()
     {
         playerData = GameObject.FindGameObjectWithTag("PlayerData");
+
+        if (GameObject.FindObjectOfType<AudioManager>() != null) sound = GameObject.FindObjectOfType<AudioManager>();
+
+        if(linkedObject == null)
+        {
+            gameObject.SetActive(false);
+        }
+
     }
 
     private void FixedUpdate()
@@ -40,9 +50,11 @@ public class CloseInfo : MonoBehaviour
          {
              if (playerData.GetComponent<PlayerMoney>().money >= destroyPrice)
              {
-                 Destroy(linkedObject);
-                 playerData.GetComponent<PlayerMoney>().RemoveMoney(destroyPrice);
-                 gameObject.SetActive(false);
+                Destroy(linkedObject);
+                playerData.GetComponent<PlayerMoney>().RemoveMoney(destroyPrice);
+                sound.Play("destroying");
+                gameObject.SetActive(false);
+                 
              }
              else
              {
