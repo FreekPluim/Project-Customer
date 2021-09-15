@@ -20,7 +20,6 @@ public class Tutorial : MonoBehaviour
 
     private void Start()
     {
-        buyingMenu = GameObject.FindGameObjectWithTag("BuyingMenu");
         energy = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<PlayerEnergy>();
         popularity = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<PlayerPopularity>();
     }

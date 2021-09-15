@@ -54,14 +54,11 @@ public class CloseInfo : MonoBehaviour
                 playerData.GetComponent<PlayerMoney>().RemoveMoney(destroyPrice);
                 sound.Play("destroying");
                 gameObject.SetActive(false);
-                 
-             }
+            }
              else
              {
                  Debug.Log("Not Enough Money");
              }
          }
-        
     }
-
 }
